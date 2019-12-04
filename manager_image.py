@@ -9,32 +9,7 @@ import sys
 import time
 from thread import *
 import threading 
-
-
-# Helper function to terminate connection with message
-def terminate(connectionSocket, response):
-    connectionSocket.send(response.encode())
-    connectionSocket.close()
-    return()
    
-# Helper function to read message from client until newline character is reached 
-def recv_all(connectionSocket):
-    message = ""
-    while True:
-      try:
-        p = connectionSocket.recv(1).decode()
-        if p == "\n":
-          break
-	message += p
-      except:
-        break
-    return(message)
-
-def terminate(connectionSocket, response):
-    connectionSocket.send(response.encode())
-    connectionSocket.close()
-    return()
-
 def clientHandler(connectionSocket, serverPort, imgcounter):
 
       # read sentence with image size
@@ -48,25 +23,43 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
 	  tmp = data.split()
           size = int(tmp[1])
           print "Image size was received"
-          connectionSocket.sendall("GOT SIZE\n")
+          connectionSocket.sendall("GOT SIZE")
       else:
           connectionSocket.close()
       
+      # read ID
+      data = ""
+      try:
+	 data = connectionSocket.recv(4096)
+      except:
+	 connectionSocket.close()
+
+      if data.startswith('ID'):
+	   tmp = data.split()
+           id = int(tmp[1])
+           print('ID was received')
+	   connectionSocket.sendall("GOT ID")
+      
+	
       # read image
       data = ""
       try:
 	  data = connectionSocket.recv(49600000)
-	  print "Receiving image of size: "
-	  print len(data)
+	  print "Received image of size: %s" % len(data)
       except:
           connectionSocket.close()
   	
+      if len(data) != size:
+	print "Size of image received does not match size advertised"
+        print "Terminating connection"
+	connectionSocket.close()
 
+      # store image
       basename = "image%s.png"
       myfile = open(basename % imgcounter, 'wb')
       myfile.write(data)
       myfile.close()
-      connectionSocket.sendall("GOT IMAGE\n")
+      connectionSocket.sendall("GOT IMAGE")
       
       
       # read sentence closing connection
