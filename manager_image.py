@@ -15,7 +15,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       # read sentence with image size
       data = ""
       try:
-          data = recv_all(connectionSocket)
+          data = connectionSocket.recv(4096)
       except:
           connectionSocket.close()
           
