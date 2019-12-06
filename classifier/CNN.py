@@ -1,7 +1,8 @@
 # Gavin Brown, grbrown@bu.edu
-# CS640 - Class Project
+# CS655 Final Project
+# Architecture taken from CS640 Final Project, that has citations
 
-# Define the architecture I use for experiments
+# Define the architecture we use for experiments
 
 import torch
 import torch.nn as nn
@@ -68,5 +69,7 @@ class Net(nn.Module):
         
         x9 = self.logsoftmax(x8)
         
+        # CS 640 cares about activations, so they get exposed on the forward pass.
+        # x9 is the prediction.
         return (x0, x1, x2, x3, x4, x5, x6, x7, x8, x9)
 

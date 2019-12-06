@@ -1,4 +1,7 @@
-# Gavin Brown, grbrown@bu.edu # first pass at a CNN for my AI project on weight space symmetries 
+# Gavin Brown, grbrown@bu.edu 
+# CS 655 Final Project
+# Functions to classify images, possibly with delay and/or error
+
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -6,26 +9,17 @@ import torch.nn as nn
 from torch.autograd import Variable
 
 import numpy as np
-#from scipy.ndimage import imread 
 from PIL import Image
 import random
-#from scipy.optimize import linear_sum_assignment
-#import sys
 import time
-#import matplotlib.pyplot as plt
-#plt.switch_backend('agg')
 
 from CNN import Net
-#from utils import *
-
-#device = torch.device('cpu')
-#datapath = '~/Desktop/cifar-10-images'
 
 def load_network():
-    """doesn't return anything"""
+    """load and return the pre-trained network for prediction"""
     net = Net()
     net.load_state_dict(torch.load('cnn_1_final.pt', map_location=torch.device('cpu')))
-    net.eval()  # set in evaluation mode
+    net.eval()  # set in evaluation mode, as opposed to training
     return net
 
 def load_image(filename):
@@ -63,33 +57,3 @@ def classify(net, filename, delay_mean, error_probability):
     # otherwise, have to extract the value from the torch type
     return int(prediction.values[0])
 
-net = load_network()
-prediction = classify(net, 'images/image_0.jpeg', 1, 0.2)
-print(prediction)
-
-"""
-# load the network
-net = Net()
-net.load_state_dict(torch.load('cnn_1_final.pt', map_location=device))
-#net.to(device)
-net.eval()
-
-# load in an image
-#image = imread('images/image_0.jpeg')
-img = Image.open('images/image_0.jpeg')
-img.load()
-image = np.asarray( img, dtype="float32" )
-print(type(image))
-print(image.dtype)
-print(image.shape)
-image = np.transpose(image, (2,0,1))
-image = np.reshape(image, (1,3,32,32))
-image = torch.from_numpy(image)
-
-# predict on it
-prediction = torch.max(net(Variable(image))[-1].data, 1)
-print('Predicted!')
-print('type:', type(prediction))
-#print('shape:', prediction.shape)
-print('values:', prediction)
-"""

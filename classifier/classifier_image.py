@@ -3,14 +3,15 @@
 # Description: Implementation of a classifiying server through socket application programmming. 
 # Command line Inputs: server port number
 
-
 from socket import *
 import sys
 import time
 from thread import *
 import threading 
+
+from neural_network import classify, load_network
    
-def clientHandler(connectionSocket, serverPort, imgcounter):
+def managerHandler(connectionSocket, serverPort, imgcounter, model):
 
       # read sentence with image size
       data = ""
@@ -60,7 +61,12 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       myfile.write(data)
       myfile.close()
       connectionSocket.sendall("GOT IMAGE")
-      
+
+      # classify the image! 
+      # hard-coded to have no (simulated) delay or (simulated) error
+      prediction = classify(model, "image%s.png", delay_mean=0, error_probability=0)
+      # need to send this back
+
       
       # read sentence closing connection
       data = ""
@@ -78,6 +84,9 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
 
 if __name__=='__main__':
 
+    # load the classifying network
+    model = load_network()
+
     # Port number of server is specified as command line argument
     if len(sys.argv) < 2: 
         print "Please specify port number of server as command line argument."
@@ -94,13 +103,13 @@ if __name__=='__main__':
     serverSocket.listen(1)
     imgcounter = 0
     while True:
-        print("Waiting for client...")
+        print("Waiting for manager...")
         
         # Accept the client request and create a new socket dedicated to the client
         connectionSocket, addr = serverSocket.accept()
-        print("A new client has joined!")
+        print("The manager has connected!")
         imgcounter +=1
-        # Start a new thread for client that just joined
-        start_new_thread(clientHandler, (connectionSocket, serverPort, imgcounter))
+        # Start a new thread for manager, who just joined
+        start_new_thread(managerHandler, (connectionSocket, serverPort, imgcounter, model))
     
     serverSocket.close()
