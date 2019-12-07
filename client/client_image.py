@@ -1,5 +1,6 @@
 import random
 import socket, select
+import sys
 from time import gmtime, strftime
 from random import randint
 
@@ -9,9 +10,12 @@ images = ["apple-touch-icon-144x144-precomposed.png"]
 # for each image in the experiment
 ids = [1]
 
-
 HOST = '198.248.248.133'
-PORT = 8889
+
+# Port number of server is specified as command line argument
+if len(sys.argv) < 2:
+    print "Please specify port number of server as command line argument."
+PORT = int(sys.argv[1])
 
 
 for i in range(len(images)):
@@ -62,9 +66,8 @@ for i in range(len(images)):
       	except:
             sock.close()
     
-      	if answer.startswith('GOT IMAGE'):
+      	if answer.startswith('Image is of class'):
             sock.sendall("Closing connection\n")
             sock.close()
-            print 'Image successfully sent to server'
-    
+		
     myfile.close()
