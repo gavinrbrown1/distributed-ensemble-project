@@ -8,7 +8,7 @@ import sys
 import time
 from collections import Counter
 
-classifier_ip = ['172.17.1.10']
+classifier_ip = ['172.17.1.10', '172.17.1.13', '172.17.1.12', '172.17.1.11']
 classifier_port = int(sys.argv[1])
 numClass = 1
 
@@ -33,6 +33,7 @@ def callClassifiers(numClass, image, image_id):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_address = (classifier_ip[i], classifier_port)
         sock.connect(server_address)
+	sock.settimeout(7)
         
         sock.sendall('ID %s' % image_id)
         answer = recv_try(sock, 4096)
@@ -51,6 +52,12 @@ def callClassifiers(numClass, image, image_id):
                 sock.sendall("Closing connection")
                 sock.close()
                 print 'Classification was successful'
-         
-      most_frequent = Counter(answers).most_common(1)[0][0]
+            else:
+		print 'Timer for classifier %s expired' % i
+      
+      if len(answers) > 1:   
+      	  most_frequent = Counter(answers).most_common(1)[0][0]
+      else:
+	  most_frequent = -1
+	
       return most_frequent

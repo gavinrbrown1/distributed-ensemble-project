@@ -69,7 +69,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       response = ""
       response = callClassifiers(numClass, data, image_id)
       
-      if response != "":  
+      if response > -1:  
           connectionSocket.sendall("Image is of class %s" % response)
       else:
           connectionSocket.sendall("Image classification failed")
