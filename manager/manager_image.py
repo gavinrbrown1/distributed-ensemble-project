@@ -1,7 +1,7 @@
-# Program:     server_2.py
-# Author:      Iden Kalemaj
-# Description: Implementation of a server through socket application programmming. 
-# Command line Inputs: server port number
+# Program:     manager_image.py
+# Author:      Andrea Burns, Gavin Brown, Iden Kalemaj
+# Description: Implementation of a manager through socket application programmming. 
+# Command line inputs: manager port number
 
 
 from socket import *
@@ -9,15 +9,26 @@ import sys
 import time
 from thread import *
 import threading 
-   
+from manager_classifier_communication import callClassifiers 
+
+# Decide on number of classifiers used
+numClass = 1
+
+# function to receive message from socket
+def recv_try(connectionSocket, numBytes):
+    data = ""
+    try:
+      data = connectionSocket.recv(numBytes)
+    except:
+      connectionSocket.close()
+      
+    return data
+
+
 def clientHandler(connectionSocket, serverPort, imgcounter):
 
       # read sentence with image size
-      data = ""
-      try:
-          data = connectionSocket.recv(4096)
-      except:
-          connectionSocket.close()
+      data = recv_try(connectionSocket, 4096)
           
       if data.startswith('SIZE'):          
 	  tmp = data.split()
@@ -28,46 +39,44 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
           connectionSocket.close()
       
       # read ID
-      data = ""
-      try:
-	 data = connectionSocket.recv(4096)
-      except:
-	 connectionSocket.close()
+      data = recv_try(connectionSocket, 4096)
 
       if data.startswith('ID'):
-	   tmp = data.split()
-           id = int(tmp[1])
-           print('ID was received')
-	   connectionSocket.sendall("GOT ID")
-      
-	
-      # read image
-      data = ""
-      try:
-	  data = connectionSocket.recv(49600000)
-	  print "Received image of size: %s" % len(data)
-      except:
+	  tmp = data.split()
+          image_id = int(tmp[1])
+          print('ID was received')
+	  connectionSocket.sendall("GOT ID")
+      else:
           connectionSocket.close()
+      
+      # read image
+      data = recv_try(connectionSocket, 49600000)
+      if data != "":
+	  print "Received image of size: %s" % len(data)
   	
       if len(data) != size:
-	print "Size of image received does not match size advertised"
-        print "Terminating connection"
-	connectionSocket.close()
+	  print "Size of image received does not match size advertised"
+          print "Terminating connection"
+	  connectionSocket.close()
 
       # store image
       basename = "image%s.png"
       myfile = open(basename % imgcounter, 'wb')
       myfile.write(data)
       myfile.close()
-      connectionSocket.sendall("GOT IMAGE")
+      
+      # send image to classifiers and receive classification
+      response = ""
+      response = callClassifiers(numClass, data, image_id)
+      
+      if response != "":  
+          connectionSocket.sendall("Image is of class %s" % response)
+      else:
+          connectionSocket.sendall("Image classification failed")
       
       
       # read sentence closing connection
-      data = ""
-      try:
-          data = connectionSocket.recv(4096)
-      except:
-          connectionSocket.close()
+      data = recv_try(connectionSocket, 4096)
           
       if data.startswith('Closing'):
           connectionSocket.close()
