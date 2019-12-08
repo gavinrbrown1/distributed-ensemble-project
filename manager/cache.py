@@ -24,6 +24,8 @@ thresh = 0.9
 #is a match in the cache; similarity metric ranges [0,1]
 #p0, p1 np arrays
 def ZNCC(p0,p1):
+    #p0 = p0.astype(np.float)
+    #p1 = p1.astype(np.float)
     #p0, p1 are two images in the form of np arrays
     zncc = 0
 
@@ -178,10 +180,12 @@ def useCache(pNew, mypath='./cache/'):
     currCache  = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
     for f in currCache:
-        img = Image.open(f)
-        data = np.asarray(img, dtype="int32")
+        cacheImg = Image.open(f)
+        cacheData = np.asarray(cacheImg, dtype="int32")
 
-        zncc = ZNCC(pNew, data) #cv2.imread(f, mode='RGB'))
+        newImg = Image.open(pNew)
+        newData = np.asarray(newImg, dtype="int32")
+        zncc = ZNCC(newData, cacheData) #cv2.imread(f, mode='RGB'))
         if zncc > thresh:
             #spit out cached class
             #chooses first match in cache for efficiency
