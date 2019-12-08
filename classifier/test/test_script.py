@@ -1,11 +1,28 @@
 # delete me later
 
+import sys
+
 from neural_network import load_network, classify
 
-net = load_network()
+with open('../true_labels.csv') as f:
+    truth = [line.split(',') for line in f.read().splitlines()]
 
-for num in ['2','3','4']:
-    print(num)
-    prediction = classify(net, '../images/image_'+num+'.jpeg', 0, 0)
-    print(prediction)
-    print()
+net = load_network()
+N = 10
+correct = 0
+
+for i in range(N):
+    print('Image     :', i)
+    prediction = classify(net, '../images/image'+str(i)+'.jpeg', 0, 0)
+    print("Predicted :", prediction)
+    print('Actual    :', truth[i][1], end='')
+    if str(prediction)==truth[i][1]:
+        correct += 1
+        print('   Correct!')
+    else:
+        print()
+    print('--------------------------------')
+
+print('--------------------------------')
+print('Accuracy: ', 100*correct/N)
+print('--------------------------------')
