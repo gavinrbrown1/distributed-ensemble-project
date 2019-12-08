@@ -12,6 +12,7 @@ from torch.autograd import Variable
 
 import numpy as np
 import PIL
+import sys
 
 datapath = '~/Desktop/cifar-10-images'
 
@@ -56,10 +57,15 @@ label2name = {0: 'airplane',
               8: 'ship',
               9: 'truck'}
 
-with open('true_labels.csv', 'w') as f:
+#with open('true_labels.csv', 'w') as f:
+with open('foo.txt', 'w') as f:
     count = 0
     for data in trainloader:
         images, labels = data
+        print(images.shape)
+        print(torch.max(images))
+        print(torch.min(images))
+        sys.exit()
         int_label = int(labels[0])
         #images = np.reshape(images.numpy(), (3,32,32))
 
