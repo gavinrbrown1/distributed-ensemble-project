@@ -6,9 +6,8 @@
 from socket import *
 import sys
 import time
-from thread import *
-import threading 
-
+from _thread import *
+#import threading 
 
 # function to receive message from socket
 def recv_try(connectionSocket, numBytes):
@@ -28,7 +27,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       if data.startswith('ID'):          
 	  tmp = data.split()
           image_id = int(tmp[1])
-          print "Image ID was received"
+          print("Image ID was received")
           connectionSocket.sendall("GOT ID")
       else:
           connectionSocket.close()
@@ -36,7 +35,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       # read image
       image = recv_try(connectionSocket, 49600000)
       if image != "":
-	  print "Received image of size: %s" % len(image)
+	  print("Received image of size: %s" % len(image))
 
       # store image
       basename = "image%s.png"
@@ -71,7 +70,7 @@ if __name__=='__main__':
 
     # Port number of server is specified as command line argument
     if len(sys.argv) < 2: 
-        print "Please specify port number of server as command line argument."
+        print("Please specify port number of server as command line argument.")
     serverPort = int(sys.argv[1])
     
     # Create a server TCP pocket

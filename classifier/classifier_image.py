@@ -23,7 +23,7 @@ def managerHandler(connectionSocket, serverPort, imgcounter, model):
       if data.startswith('SIZE'):          
 	  tmp = data.split()
           size = int(tmp[1])
-          print "Image size was received"
+          print("Image size was received")
           connectionSocket.sendall("GOT SIZE")
       else:
           connectionSocket.close()
@@ -46,13 +46,13 @@ def managerHandler(connectionSocket, serverPort, imgcounter, model):
       data = ""
       try:
 	  data = connectionSocket.recv(49600000)
-	  print "Received image of size: %s" % len(data)
+	  print("Received image of size: %s" % len(data))
       except:
           connectionSocket.close()
   	
       if len(data) != size:
-	print "Size of image received does not match size advertised"
-        print "Terminating connection"
+	print("Size of image received does not match size advertised")
+        print("Terminating connection")
 	connectionSocket.close()
 
       # store image
