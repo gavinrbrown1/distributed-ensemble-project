@@ -6,7 +6,7 @@
 #cache/
 #-----cifar10 images
 import numpy as np
-#import cv2
+import os
 from os import listdir
 from os.path import isfile, join
 from PIL import Image
@@ -60,7 +60,7 @@ def l2(p0, p1):
 
 #computes pairwise distances
 def minPairwiseDist(cachepath='./cache/', distances = './pairwise_distances.txt'): 
-    currPairwise  = [f for f in listdir(distances) if isfile(join(distances, f))]
+    currPairwise  = [f for f in listdir('./') if isfile(join('./', f))]
     currCache  = [f for f in listdir(cachepath) if isfile(join(cachepath, f))]
     currMinDist = 100000000
     currMinPair = []
@@ -82,12 +82,12 @@ def minPairwiseDist(cachepath='./cache/', distances = './pairwise_distances.txt'
         #need to compute distances between imgs in cache for the first time
         for i in range(0, len(currCache)):
             for j in range(0, len(currCache)):
-                if i != j:
-                    l2 = l2(currCache[i], currCache[j])
+                if (i != j) and (currCache[j] not in [el[0] for el in pairwiseDistances]):
+                    ll2 = l2(currCache[i], currCache[j])
                     #compute distance and add to list
-                    pairwiseDistances += [currCache[i], currCache[j], l2]
-                    if l2 < currMinDist:
-                        currMinDist = l2
+                    pairwiseDistances.append([currCache[i], currCache[j], ll2])
+                    if ll2 < currMinDist:
+                        currMinDist = ll2
                         currMinPair = [currCache[i], currCache[j]]
         #write all pairwise distances to file
         with open(distances, 'w') as f:
@@ -113,7 +113,7 @@ def kickOutCache(distances='./pairwise_distances.txt', mypath='./cache/'):
         for pairwise in entries:
             pairwise = pairwise.strip().split(',')
             if (pairwise[0] not in pairToRemove) and (pairwise[1] not in pairToRemove):
-                keepers += pairwise
+                keepers.append(pairwise)
     
     #now overwrite existing file with remaining distances
     with open(distances, 'w') as f:
@@ -128,11 +128,11 @@ def addNewPairwise(p0, cachePath='./cache/', pairwisePath='./pairwise_distances.
 
     cache = [f for f in listdir(cachePath) if isfile(join(cachePath, f))]
     for img in cache:
-       newEntries+=[p0,img,l2(p0,img)]
+       newEntries.append([p0,img,l2(p0,img)])
 
     with open(pairwisePath, 'a') as f:
         for newE in newEntries:
-            f.write(newE[0] + ',' + newE[1] + ',' + newE[2] + '\n')
+            f.write(newE[0] + ',' + newE[1] + ',' + str(newE[2]) + '\n')
 
 #return already classified value of image from saved text file
 #cache_decisions.txt
@@ -153,16 +153,17 @@ def updateCache(fname, pNew, dNew, mypath='./cache/'):
     currCache  = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     cacheSize = len(currCache) 
     if cacheSize < 100:
-        im = Image.fromarray(pNew)
-        im.save(mypath + fname)
-        
-        with open('cache_decisions.txt', 'a') as f:
-            f.write(fname + "," + dNew + '\n')
-
         #in addition to adding this to the cache
         #we need to add its pairwise distance to the known distances
         addNewPairwise(fname)
-        #but don't need to remove anything from set yet, since under 100
+        #print(type(pNew))
+        im = Image.fromarray(pNew, mode="RGB")
+        im.save(mypath + fname)
+        
+        with open('cache_decisions.txt', 'a') as f:
+            f.write(fname + "," + str(dNew) + '\n')
+
+    #but don't need to remove anything from set yet, since under 100
     else:
        #kickout closest pair of images
        #pre-emptively "backing off", but linear backoff
@@ -192,5 +193,3 @@ def useCache(pNew, mypath='./cache/'):
     #also need to update cache now with new sample, manager has to call update fn
     return [False, None]
 
-print(l2('image2.png','image3.png'))
-#print([f for f in listdir('./') if isfile(join('./', f))])

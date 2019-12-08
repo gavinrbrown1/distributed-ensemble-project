@@ -1,6 +1,6 @@
 # Program:     manager_classifier_communication.py
 # Author:      Andrea Burns, Gavin Brown, Iden Kalemaj
-# Description: Implement communication between manager and classifiers.  
+# Description: Implement communication between manager and classifiers.
 
 
 import socket, select
@@ -16,48 +16,49 @@ numClass = 1
 def recv_try(connectionSocket, numBytes):
     data = ""
     try:
-      data = connectionSocket.recv(numBytes)
+        data = connectionSocket.recv(numBytes).decode()
     except:
-      connectionSocket.close()
-      
+        connectionSocket.close()
+
     return data
 
 
-# numClass	: number of classifiers that the manager asks for classification
-# image		: image to be classified, in string format
-# image_id	: id of image, as communicated by client, that determines experimental parameters
-#		  about delay and corruption in the communication between classifier and manager			
+# numClass      : number of classifiers that the manager asks for classification
+# image         : image to be classified, in string format
+# image_id      : id of image, as communicated by client, that determines experimental parameters
+#                 about delay and corruption in the communication between classifier and manager
 def callClassifiers(numClass, image, image_id):
-      answers = []
-      for i in range(numClass):
+    answers = []
+    for i in range(numClass):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_address = (classifier_ip[i], classifier_port)
         sock.connect(server_address)
-	sock.settimeout(7)
-        
-        sock.sendall('ID %s' % image_id)
+        sock.settimeout(7)
+
+        sock.sendall(('ID %s' % image_id).encode())
         answer = recv_try(sock, 4096)
-        if answer.startswith('GOT ID'):
-            print 'Sending image to classifier %s' % i
-      	    sock.sendall(image)
-    
+        if answer[:6] == 'GOT ID':
+            print('Sending image to classifier %s' % i)
+            sock.sendall(image)
+  
             # check server reply
             answer = recv_try(sock, 4096)
-            print 'answer = %s' % answer
-        
-      	    if answer.startswith('CLASS'):
+            print('answer = %s' % answer)
+  
+            if answer[:5]== 'CLASS':
                 tmp = answer.split()
                 classf = int(tmp[1])
                 answers.append(classf)
-                sock.sendall("Closing connection")
+                sock.sendall(("Closing connection").encode())
                 sock.close()
-                print 'Classification was successful'
+                print('Classification was successful')
             else:
-		print 'Timer for classifier %s expired' % i
-      
-      if len(answers) > 1:   
-      	  most_frequent = Counter(answers).most_common(1)[0][0]
-      else:
-	  most_frequent = -1
-	
-      return most_frequent
+                print('Timer for classifier %s expired' % i)
+  
+    if len(answers) >= 1:
+        most_frequent = Counter(answers).most_common(1)[0][0]
+    else:
+        most_frequent = -1
+  
+    return most_frequent
+
