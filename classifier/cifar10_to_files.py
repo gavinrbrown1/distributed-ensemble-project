@@ -45,28 +45,48 @@ testloader = torch.utils.data.DataLoader(testset,
                                             batch_size=1000,
                                             shuffle=True)
 
-count = 0
-for data in trainloader:
-    images, labels = data
-    images = np.reshape(images.numpy(), (3,32,32))
+label2name = {0: 'airplane',
+              1: 'automobile',
+              2: 'bird',
+              3: 'cat',
+              4: 'deer',
+              5: 'dog',
+              6: 'frog',
+              7: 'horse',
+              8: 'ship',
+              9: 'truck'}
 
-    scaled = np.uint8(255 * images)
-    scaled = np.transpose(scaled, (1,2,0))
-    #print('shape:', scaled.shape)
-    #print(type(scaled))
-    #print(scaled.dtype)
-    #print(np.max(scaled, axis=(0,1,2)))
-    #print(np.min(scaled, axis=(0,1,2)))
-    #print()
 
-    im = PIL.Image.fromarray(scaled, mode='RGB')
-    #print(im.size)
+with open('true_labels.csv', 'w') as f:
+    count = 0
+    for data in trainloader:
+        images, labels = data
+        #print(type(labels))
+        #print(int(labels[0]))
+        #print(labels.values())
+        int_label = int(labels[0])
+        images = np.reshape(images.numpy(), (3,32,32))
 
-    im.save('images/image_'+str(count)+'.jpeg')
-    #print(images.shape)
-    count += 1
-    if count % 100 == 0:
-        print(count)
-    if count >= 1000:
-        break
+        scaled = np.uint8(255 * images)
+        scaled = np.transpose(scaled, (1,2,0))
+        #print('shape:', scaled.shape)
+        #print(type(scaled))
+        #print(scaled.dtype)
+        #print(np.max(scaled, axis=(0,1,2)))
+        #print(np.min(scaled, axis=(0,1,2)))
+        #print()
+
+        im = PIL.Image.fromarray(scaled, mode='RGB')
+        #print(im.size)
+
+        im.save('images/image'+str(count)+'.jpeg')
+
+        f.write('image'+str(count)+'.jpeg,'+str(int_label)+','+label2name[int_label]+'\n')
+
+        #print(images.shape)
+        count += 1
+        if count % 100 == 0:
+            print(count)
+        if count >= 1000:
+            break
 
