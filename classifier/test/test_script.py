@@ -2,7 +2,7 @@
 
 import sys
 
-from neural_network import load_network, classify
+from neural_network import load_network, classify, load_image
 
 with open('../true_labels.csv') as f:
     truth = [line.split(',') for line in f.read().splitlines()]

@@ -24,12 +24,19 @@ def load_network():
 
 def load_image(filename):
     """given filename, return 1x3x32x32 torch tensor"""
+    #transform_test = transforms.Compose([
+    #    transforms.ToTensor(),
+    normal =  transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
+
     image = Image.open(filename)
     image.load()
     image = np.asarray(image, dtype='float32')
     image = np.transpose(image, (2,0,1))
-    image = np.reshape(image, (1,3,32,32))
+    #image = np.reshape(image, (1,3,32,32))
+    image = image / 255
     image = torch.from_numpy(image)
+    image = normal.__call__(image)
+    image = image.resize_((1,3,32,32))
     return image
 
 def classify(net, filename, delay_mean, error_probability):

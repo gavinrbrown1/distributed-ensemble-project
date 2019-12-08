@@ -56,28 +56,28 @@ label2name = {0: 'airplane',
               8: 'ship',
               9: 'truck'}
 
-
 with open('true_labels.csv', 'w') as f:
     count = 0
     for data in trainloader:
         images, labels = data
-        #print(type(labels))
-        #print(int(labels[0]))
-        #print(labels.values())
         int_label = int(labels[0])
-        images = np.reshape(images.numpy(), (3,32,32))
+        #images = np.reshape(images.numpy(), (3,32,32))
 
-        scaled = np.uint8(255 * images)
-        scaled = np.transpose(scaled, (1,2,0))
-        #print('shape:', scaled.shape)
-        #print(type(scaled))
-        #print(scaled.dtype)
-        #print(np.max(scaled, axis=(0,1,2)))
-        #print(np.min(scaled, axis=(0,1,2)))
-        #print()
+        #print(images.shape)
+        test = np.zeros((32,32,3))
+        #print(images[0][0])
+        for i in range(0,32):
+            for j in range(0,32):
+                test[i][j] = [images[0][0][i][j], images[0][1][i][j],images[0][2][i][j]]
 
-        im = PIL.Image.fromarray(scaled, mode='RGB')
-        #print(im.size)
+        test_img = np.uint8(255 * test)
+        im = PIL.Image.fromarray(test_img)
+        #im.save('./tester_andrea.png')
+
+        #images = np.reshape(np.uint8(255 * images), (3,32,32))
+        #print(images.shape)
+
+        #im = PIL.Image.fromarray(images)
 
         im.save('images/image'+str(count)+'.jpeg')
 
