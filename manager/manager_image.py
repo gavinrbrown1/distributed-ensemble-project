@@ -3,7 +3,8 @@
 # Description: Implementation of a manager through socket application programmming. 
 # Command line inputs: manager port number
 
-
+import cv2
+from cache import *
 from socket import *
 import sys
 import time
@@ -12,7 +13,7 @@ import threading
 from manager_classifier_communication import callClassifiers 
 
 # Decide on number of classifiers used
-numClass = 1
+numClass = 4
 
 # function to receive message from socket
 def recv_try(connectionSocket, numBytes):
@@ -64,16 +65,22 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       myfile = open(basename % imgcounter, 'wb')
       myfile.write(data)
       myfile.close()
+
+      # check cache before sending to classifiers
+      tryCache = useCache(basename)
+      if tryCache[0] == False:      
+          # send image to classifiers and receive classification
+          response = ""
+          response = callClassifiers(numClass, data, image_id)
       
-      # send image to classifiers and receive classification
-      response = ""
-      response = callClassifiers(numClass, data, image_id)
-      
-      if response > -1:  
-          connectionSocket.sendall("Image is of class %s" % response)
+          if response > -1:  
+              updateCache(basename, cv2.imread(basename, mode='RGB'), response)
+              connectionSocket.sendall("Image is of class %s" % response)
+          else:
+              connectionSocket.sendall("Image classification failed")
       else:
-          connectionSocket.sendall("Image classification failed")
-      
+          #return cached decision
+           connectionSocket.sendall("Image is of class %s" % response)
       
       # read sentence closing connection
       data = recv_try(connectionSocket, 4096)
