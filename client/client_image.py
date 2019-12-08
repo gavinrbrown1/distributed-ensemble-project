@@ -31,38 +31,38 @@ for i in range(len(images)):
     size = len(bytes)
 
     # send image size to server
-    sock.sendall("SIZE %s\n" % size)
+    sock.sendall(("SIZE %s\n" % size).encode())
 
     answer = ""
     try:
-        answer = sock.recv(4096)
+        answer = sock.recv(4096).decode()
         print('answer = %s' % answer)
     except:
         sock.close()
     
     # send image ID
     print('Sending ID...')
-    sock.sendall('ID %s' % ids[i])
+    sock.sendall(('ID %s' % ids[i]).encode())
     answer = ""
     try:
-        answer = sock.recv(4096)
+        answer = sock.recv(4096).decode()
         print('answer = %s' % answer)
     except:
         sock.close()
   
     # send image
-    if answer.startswith('GOT ID'):
+    if answer[:6] == 'GOT ID':
         print('Sending image...')
         sock.sendall(bytes)
         # check server reply
         answer = ""
         try:
-          answer = sock.recv(4096)
+          answer = sock.recv(4096).decode()
           print('answer = %s' % answer)
         except:
           sock.close()
         
-        if answer.startswith('Image is of class'):
-          sock.sendall("Closing connection\n")
+        if answer[:17] == 'Image is of class':
+          sock.sendall(("Closing connection").encode())
           sock.close()
     myfile.close()
