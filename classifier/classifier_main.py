@@ -11,6 +11,12 @@ from _thread import *
 
 from neural_network import load_network, classify
 
+
+error_probabilities = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+exp_delays = [0.0, 0.5, 1.0]
+fixed_delays = [1.0, 2.0]
+
+
 # function to receive message from socket
 def recv_try(connectionSocket, numBytes):
     data = ""
@@ -29,7 +35,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter, model):
 
     if data[:2] == 'ID':
         tmp = data.split()
-        image_id = int(tmp[1])
+        image_id = tmp[1]
         print("Image ID was received")
         connectionSocket.sendall(("GOT ID").encode())
     else:
@@ -52,9 +58,10 @@ def clientHandler(connectionSocket, serverPort, imgcounter, model):
     myfile.close()
 
     # set the experiment parameters for the classification
-    fixed_delay = 0
-    exp_delay_mean = 0
-    error_probability = 0
+    image_id = image_id.split('.')
+    error_probability = error_probabilities[image_id[0]]
+    fixed_delay = fixed_delays[mage_id[2]]
+    exp_delay_mean = exp_delays[image_id[1]]
 
     # call classification function
     classf = classify(model, 'image%s.png', fixed_delay, exp_delay_mean, error_probability)
