@@ -19,7 +19,7 @@ def load_network():
     """load and return the pre-trained network for prediction"""
     net = Net()
     net.load_state_dict(torch.load('cnn_1_final.pt', map_location=torch.device('cpu')))
-    net.eval()  # set in evaluation mode, as opposed to training
+    #net.eval()  # set in evaluation mode, as opposed to training
     return net
 
 def load_image(filename):
