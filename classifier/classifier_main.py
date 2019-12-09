@@ -9,6 +9,8 @@ import time
 from _thread import *
 #import threading
 
+from neural_network import load_network, classify
+
 # function to receive message from socket
 def recv_try(connectionSocket, numBytes):
     data = ""
@@ -20,7 +22,7 @@ def recv_try(connectionSocket, numBytes):
 
     return data
 
-def clientHandler(connectionSocket, serverPort, imgcounter):
+def clientHandler(connectionSocket, serverPort, imgcounter, model):
     
     # read ID
     data = recv_try(connectionSocket, 4096)
@@ -49,11 +51,13 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
     myfile.write(image)
     myfile.close()
 
-    # call classification function
-    classf = 0
+    # set the experiment parameters for the classification
+    fixed_delay = 0
+    exp_delay_mean = 0
+    error_probability = 0
 
-    # implement delay and corruption
-    time.sleep(0)
+    # call classification function
+    classf = classify(model, 'image%s.png', fixed_delay, exp_delay_mean, error_probability)
 
     # send classification to manager
     if classf > -1:
@@ -90,6 +94,10 @@ if __name__=='__main__':
     # serverSocket will be the welcoming socket
     serverSocket.listen(1)
     imgcounter = 0
+
+    # load the model
+    model = load_network()
+
     while True:
         print("Waiting for manager...")
 
@@ -98,7 +106,7 @@ if __name__=='__main__':
         print("A manager has joined!")
         imgcounter +=1
         # Start a new thread for client that just joined
-        start_new_thread(clientHandler, (connectionSocket, serverPort, imgcounter))
+        start_new_thread(clientHandler, (connectionSocket, serverPort, imgcounter, model))
 
     serverSocket.close()
 

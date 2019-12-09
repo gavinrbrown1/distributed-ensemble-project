@@ -36,25 +36,27 @@ def load_image(filename):
     image = image.resize_((1,3,32,32))
     return image
 
-def classify(net, filename, delay_mean, error_probability):
+def classify(net, filename, fixed_delay, exp_delay_mean, error_probability):
     """
     Using pre-loaded network, find image and return prediction.
     filename: image name
+    fixed_delay: always delay this much, in seconds
     delay_mean: delay time is drawn from exponential distribution with this mean, in seconds.
     error_probability: w.p., output a random guess.
     """
     image = load_image(filename)
     prediction = torch.max(net(Variable(image))[-1].data, 1)
 
-    # draw a sample from an exponential distribution
+    # model slower connection or longer time to classify
+    time.sleep(fixed_delay)
+
+    # draw a wait-time sample from an exponential distribution
     if delay_mean != 0:
-        wait_time = random.expovariate(1.0 / delay_mean)
-        print('waiting', wait_time, 'sec')
+        wait_time = random.expovariate(1.0 / exp_delay_mean)
         time.sleep(wait_time)
 
     # with specified probability, output a random guess
     if random.random() < error_probability:
-        print('flipping')
         prediction = random.randrange(10)
         return prediction
     
