@@ -176,6 +176,10 @@ def updateCache(fname, pNew, dNew, mypath='./cache/'):
 
 #pNew here is filename     
 def useCache(pNew, mypath='./cache/'):
+    #create cache folder if it doesn't yet exist
+    if not os.path.exists(mypath):
+    os.makedirs(mypath)
+
     #get names of images in current cache folder
     currCache  = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 

@@ -87,7 +87,9 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
         #return cached decision
         connectionSocket.sendall(("Image is of class %s" % tryCache[1]).encode())
     
-    
+        #can now delete image from manager folder (not from cache)
+        os.remove(basename)        
+  
     # read sentence closing connection
     data = recv_try(connectionSocket, 4096)
 
