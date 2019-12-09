@@ -43,7 +43,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
 
     if data[0:2] == 'ID':
         tmp = data.split()
-        image_id = int(tmp[1])
+        image_id = tmp[1]
         print('ID was received')
         connectionSocket.sendall(("GOT ID").encode())
     else:
