@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  10 DEC 2019 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  10 DEC 2019 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -283,59 +283,66 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 )
 \Gin@req@height=\dimen123
 \Gin@req@width=\dimen124
+) (/usr/local/texlive/2019basic/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen125
+\WF@size=\dimen126
+\c@WF@wrappedlines=\count123
+\WF@box=\box31
+\WF@everypar=\toks31
+Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2019basic/texmf-dist/tex/latex/preprint/fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip53
 ) (/usr/local/texlive/2019basic/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
  Excluding comment 'comment')
-\c@theorem=\count123
+\c@theorem=\count124
  (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-\AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring OFF on input line 60.
  (/usr/local/texlive/2019basic/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2019basic/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count124
+\c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 60.
+LaTeX Info: Redefining \pageref on input line 60.
+LaTeX Info: Redefining \nameref on input line 60.
  (./Report.out) (./Report.out)
 \@outlinefile=\write4
 \openout4 = `Report.out'.
 
  (/usr/local/texlive/2019basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen125
-\scratchbox=\box32
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen126
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count126
+\scratchdimen=\dimen127
+\scratchbox=\box33
+\nofMPsegments=\count127
+\nofMParguments=\count128
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen128
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
+\everyMPtoPDFconversion=\toks33
 ) (/usr/local/texlive/2019basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2019basic/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -349,12 +356,13 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+LaTeX Font Info:    Try loading font information for U+msa on input line 62.
  (/usr/local/texlive/2019basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 62.
  (/usr/local/texlive/2019basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -364,53 +372,62 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
-<image0.jpeg, id=42, 32.12pt x 32.12pt>
+<image0.jpeg, id=39, 32.12pt x 32.12pt>
 File: image0.jpeg Graphic file (type jpg)
 <use image0.jpeg>
-Package pdftex.def Info: image0.jpeg  used on input line 77.
-(pdftex.def)             Requested size: 93.94957pt x 93.95718pt.
-<image3.jpeg, id=43, 32.12pt x 32.12pt>
+Package pdftex.def Info: image0.jpeg  used on input line 84.
+(pdftex.def)             Requested size: 70.46037pt x 70.46617pt.
+<image3.jpeg, id=40, 32.12pt x 32.12pt>
 File: image3.jpeg Graphic file (type jpg)
 <use image3.jpeg>
-Package pdftex.def Info: image3.jpeg  used on input line 81.
-(pdftex.def)             Requested size: 93.94957pt x 93.95718pt.
-<image5.jpeg, id=44, 32.12pt x 32.12pt>
+Package pdftex.def Info: image3.jpeg  used on input line 88.
+(pdftex.def)             Requested size: 70.46037pt x 70.46617pt.
+<image5.jpeg, id=41, 32.12pt x 32.12pt>
 File: image5.jpeg Graphic file (type jpg)
 <use image5.jpeg>
-Package pdftex.def Info: image5.jpeg  used on input line 85.
-(pdftex.def)             Requested size: 93.94957pt x 93.95718pt.
- [1
-
-{/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image0.jpeg> <./image3.jpeg> <./image5.jpeg>]
-<networksArchitecture.png, id=58, 1598.97375pt x 1056.94875pt>
+Package pdftex.def Info: image5.jpeg  used on input line 92.
+(pdftex.def)             Requested size: 70.46037pt x 70.46617pt.
+<image6.jpeg, id=42, 32.12pt x 32.12pt>
+File: image6.jpeg Graphic file (type jpg)
+<use image6.jpeg>
+Package pdftex.def Info: image6.jpeg  used on input line 96.
+(pdftex.def)             Requested size: 70.46037pt x 70.46617pt.
+<networksArchitecture.png, id=43, 1598.97375pt x 1056.94875pt>
 File: networksArchitecture.png Graphic file (type png)
 <use networksArchitecture.png>
-Package pdftex.def Info: networksArchitecture.png  used on input line 100.
-(pdftex.def)             Requested size: 319.7891pt x 211.386pt.
- [2 <./networksArchitecture.png>] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
+Package pdftex.def Info: networksArchitecture.png  used on input line 104.
+(pdftex.def)             Requested size: 239.83571pt x 158.53546pt.
+<FSM.png, id=46, 2246.3925pt x 1180.41pt>
+File: FSM.png Graphic file (type png)
+<use FSM.png>
+Package pdftex.def Info: FSM.png  used on input line 113.
+(pdftex.def)             Requested size: 336.94434pt x 177.05386pt.
+ [1
+
+{/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image0.jpeg> <./image3.jpeg> <./image5.jpeg> <./image6.jpeg>] [2 <./networksArchitecture.png> <./FSM.png>] [3] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 7BB2D2434FE8F209A7719B6E321AC207;509.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 170.
+(rerunfilecheck)             Checksum: 1F5AF408622D4E6DD0CC60B7CC1C2C3E;469.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 185.
  ) 
 Here is how much of TeX's memory you used:
- 8301 strings out of 494060
- 122778 string characters out of 6163035
- 217603 words of memory out of 5000000
- 11887 multiletter control sequences out of 15000+600000
+ 8365 strings out of 494060
+ 123657 string characters out of 6163035
+ 221044 words of memory out of 5000000
+ 11944 multiletter control sequences out of 15000+600000
  12403 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 42i,8n,40p,1125b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (4 pages, 191651 bytes).
+ 42i,7n,40p,1125b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Report.pdf (5 pages, 410147 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 

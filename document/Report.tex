@@ -4,6 +4,7 @@
 \usepackage[noend]{algpseudocode}
 \usepackage{subcaption}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 
 \title{\vspace{-5ex} Distributed Ensembles for Image Classification}
 \usepackage{fullpage,comment}
@@ -77,7 +78,7 @@ In this experiment we distribute 4 independent classifiers across different netw
 This distributed system allows us to investigate latency versus accuracy: by only taking the votes from classifiers that have responded within a certain timeout period, we force decisions to be faster but possibly lose accuracy.
 Lastly, we try hand-crafted caching tools that can act as short-cut decisions, to see the impact on end-to-end delay.
 
-\begin{figure}
+\begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \begin{subfigure}[b]{0.15\textwidth}
         \includegraphics[width=\textwidth]{image0.jpeg}
@@ -86,13 +87,17 @@ Lastly, we try hand-crafted caching tools that can act as short-cut decisions, t
     \begin{subfigure}[b]{0.15\textwidth}
         \includegraphics[width=\textwidth]{image3.jpeg}
     \end{subfigure}
-    ~
+    \\ 
     \begin{subfigure}[b]{0.15\textwidth}
         \includegraphics[width=\textwidth]{image5.jpeg}
     \end{subfigure}
-    \caption{A few images from CIFAR-10. From left to right: a dog, a truck, and an airplane.}
+    ~
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{image6.jpeg}
+    \end{subfigure}
+    \caption{A few images from CIFAR-10. Clockwise from top left: a dog, a truck, a horse, and an airplane.}
     \label{fig:cifar10_images}
-\end{figure}
+\end{wrapfigure}
 
 \begin{figure}
     \centering
@@ -110,9 +115,9 @@ A client wishing to receive classification for an image connects to a manager an
     \label{fig:fsm}
 \end{figure}
 
-
-{\bf LEARNING OUTCOME GO HERE.} 
-They asked for them in the project document, so they'll surely be worth like 5\% of the overall grade.
+The learning outcomes of this project include: greater experience with the featured aspects of computer networking like sockets, caching, and coordinating distributed systems.
+We also hope to improve our ability to collaborate on building moderate-scale computer systems from near-scratch, learning more about how to design our solutions.
+Finally, we hope to better understand how distributed approaches may benefit machine learning prediction systems.
 
 \section{Experimental methodology}
 
@@ -147,11 +152,11 @@ The results mostly matched what we expected, showing clear tradeoffs between acc
 {\bf Was anything in the plots surprising?
 Probably something should have surprised us.}
 
-Here are some extensions:
-\begin{itemize}
-    \item Add more classifiers, allow them to scale up and down.
-    \item Implement faster caching algorithms, and/or more sophisticated measures of image closeness.
-\end{itemize}
+Several natural extensions present themselves.
+Currently we use a fixed number of classifiers, but we could extend our system to gracefully scale up and down as machines come on and offline.
+From the point of the view of the user, we used only one client in order to highlight the effects of the cache and unreliable classification.
+We could extend our manager to handle concurrent requests from multiple clients, and set up the classifiers to process images sequentially instead of one over each connection.
+Our model also currently sets up a unique TCP connection for each image, but depending on the client's needs it may be more efficient to keep one connection for several images.
 
 \section{Division of labor}
 
