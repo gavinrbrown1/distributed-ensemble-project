@@ -4,7 +4,9 @@
 # Script to read in results text files and produce plots
 
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('agg')
 
 def read_in_csv(filename):
     """read in the results of one experiment, saved in the CSV"""
@@ -44,8 +46,20 @@ def average_time(results):
 # accuracy given results, average time given results
 # then averages over different sets of results
 
-
-
 labels = get_true_labels()
 print(labels[:10])
-    
+
+## a sample piece of code to plot with 
+starting_experiment = 1
+
+cache_size = [10, 25, 50]
+avg_times_uniform = [0.1, 0.1, 0.2]
+avg_times_power = [0.05, 0.75, 0.1]
+plt.plot(cache_size, avg_times_uniform, label='Uniform')
+plt.plot(cache_size, avg_times_power, label='Power Law')
+plt.xlabel('Cache Size')
+plt.ylabel('Avg. Communication Time (s)')
+plt.title('Communication Time and Cache Size')
+plt.legend()
+plt.savefig('comm_time_vs_cache_size.png')
+
