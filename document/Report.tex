@@ -89,12 +89,11 @@ Image classification is an important machine learning task, as it is an initial 
 \end{figure}
 
 Ensembling is a popular way to improve the performance of a machine learning task; an ensemble is a set of different classifiers that are ‘combined’ to make a collective, better decision on the task. 
-For a reference see Chapter 14 of Bishop's \emph{Pattern Recognition and Machine Learning}~\cite{bishop}.
+Such models are also sometimes called ``committees;'' for a reference see Chapter 14 of \cite{bishop}.
 %The core idea is that combining many weak learners results in a strong learner. 
-%Two common ways to ensemble different classifiers are bagging and boosting. In bagging, classifiers are learned independently, whereas boosting tries to learn new models which succeed in cases that previous classifiers failed. 
-
-
-In this experiment we distribute 4 independent classifiers across different network nodes (servers) to be used as an ensemble, similar to bagging, in which we take a majority vote of their decisions and use that as the final classification result. This distributed system allows us to investigate latency versus performance benefits when introducing additional classifiers to the ensemble. Lastly, we try hand-crafted caching tools that can act as short-cut decisions, to see the impact on end-to-end delay.
+In this experiment we distribute 4 independent classifiers across different network nodes (servers) and take a majority vote of their decisions as the final classification result.
+This distributed system allows us to investigate latency versus accuracy: by only taking the votes from classifiers that have responded within a certain timeout period, we force decisions to be faster but possibly lose accuracy.
+Lastly, we try hand-crafted caching tools that can act as short-cut decisions, to see the impact on end-to-end delay.
 
 \begin{figure}
     \centering
@@ -103,7 +102,7 @@ In this experiment we distribute 4 independent classifiers across different netw
     \label{fig:architecture}
 \end{figure}
 
-A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists (zero-normalized cross correlation coefficient is deemed high enough between two images), then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}, and below we have Finite State Machines of each node. There is only one classifier FSM because they all behave the same way.
+A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists (zero-normalized cross correlation coefficient is deemed high enough between two images), then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}, and below we have a Finite State Machine characterizing the behavior of our system. The classifiers are grouped under the same state since they behave identically up to randomness.
 
 
 
