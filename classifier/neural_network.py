@@ -51,7 +51,7 @@ def classify(net, filename, fixed_delay, exp_delay_mean, error_probability):
     time.sleep(fixed_delay)
 
     # draw a wait-time sample from an exponential distribution
-    if delay_mean != 0:
+    if exp_delay_mean != 0:
         wait_time = random.expovariate(1.0 / exp_delay_mean)
         time.sleep(wait_time)
 

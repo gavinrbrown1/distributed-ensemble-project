@@ -7,14 +7,13 @@ from socket import *
 import sys
 import time
 from _thread import *
-#import threading
 
 from neural_network import load_network, classify
 
 
 error_probabilities = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
-exp_delays = [0.0, 0.5, 1.0]
-fixed_delays = [1.0, 2.0]
+exp_delays = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+fixed_delays = [0.1, 0.2]
 
 
 # function to receive message from socket
@@ -52,19 +51,19 @@ def clientHandler(connectionSocket, serverPort, imgcounter, model):
         print("Received image of size: %s" % len(image))
 
     # store image
-    basename = "image%s.png"
-    myfile = open(basename % imgcounter, 'wb')
+    basename = "image" + str(imgcounter) + ".png"
+    myfile = open(basename, 'wb')
     myfile.write(image)
     myfile.close()
 
     # set the experiment parameters for the classification
     image_id = image_id.split('.')
-    error_probability = error_probabilities[image_id[0]]
-    fixed_delay = fixed_delays[mage_id[2]]
-    exp_delay_mean = exp_delays[image_id[1]]
+    error_probability = error_probabilities[int(image_id[0])]
+    fixed_delay = fixed_delays[int(image_id[2])]
+    exp_delay_mean = exp_delays[int(image_id[1])]
 
     # call classification function
-    classf = classify(model, 'image%s.png', fixed_delay, exp_delay_mean, error_probability)
+    classf = classify(model, basename, fixed_delay, exp_delay_mean, error_probability)
 
     # send classification to manager
     if classf > -1:
