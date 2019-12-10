@@ -59,7 +59,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
     if data[0:2] == 'ID':
         tmp = data.split()
         image_id = tmp[1]
-        print('ID was received')
+        print('ID received from client: %s' % image_id)
         connectionSocket.sendall(("GOT ID").encode())
     else:
         connectionSocket.close()
@@ -107,13 +107,13 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
         print("Image was found in cache")
         connectionSocket.sendall(("Image is of class %s" % tryCache[1]).encode())
     
-        #can now delete image from manager folder (not from cache)
-        os.remove(basename)        
-  
         fn = 'cache_stats_' + image_id + '.txt'
         #update cache hit stats
         with open(fn, 'a') as f:
             f.write(basename+',hit\n')
+
+     #can now delete image from manager folder (not from cache)
+     os.remove(basename)
 
     # read sentence closing connection
     data = recv_try(connectionSocket, 4096)
@@ -151,7 +151,7 @@ if __name__=='__main__':
         print("**A new client has joined!**")
         imgcounter +=1
 
-        if imgcounter >= 1000:
+        if imgcounter >= 100:
             #new experiment, start anew
             clearCache()
             imgcounter = 0
