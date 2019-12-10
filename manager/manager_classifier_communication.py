@@ -34,8 +34,15 @@ def callClassifiers(numClass, image, image_id):
         server_address = (classifier_ip[i], classifier_port)
         sock.connect(server_address)
         sock.settimeout(timeout_var)
-
-        sock.sendall(('ID %s' % image_id).encode())
+        
+        # two classifiers experience delay
+        if i == 2 | i == 3:
+            sock.sendall(('ID %s' % image_id).encode())
+        # two other classifiers experience no delay
+        else:
+            image_id = image_id[:2] + '0' + image_id[3:]
+            sock.sendall(('ID %s' % image_id).encode())
+        
         answer = recv_try(sock, 4096)
         if answer[:6] == 'GOT ID':
             print('Sending image to classifier %s' % i)
