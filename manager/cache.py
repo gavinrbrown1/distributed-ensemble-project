@@ -56,7 +56,7 @@ def l2(p0, p1):
     #img.load()
     np0 = np.asarray(img0, dtype="int32" )
 
-    img1 = Image.open(p1)
+    img1 = Image.open('./cache/' + p1)
     np1 = np.asarray(img1, dtype="int32" )
     return np.linalg.norm(np1-np0)
 
