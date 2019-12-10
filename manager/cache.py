@@ -190,6 +190,7 @@ def useCache(pNew, mypath='./cache/'):
         newImg = Image.open(pNew)
         newData = np.asarray(newImg, dtype="int32")
         zncc = ZNCC(newData, cacheData) #cv2.imread(f, mode='RGB'))
+        print('ZNCC = ' + str(zncc))
         if zncc > thresh:
             #spit out cached class
             #chooses first match in cache for efficiency
@@ -201,3 +202,9 @@ def useCache(pNew, mypath='./cache/'):
     #also need to update cache now with new sample, manager has to call update fn
     return [False, None]
 
+'''
+a = np.asarray(Image.open('./cache/image0.png'))
+b = np.asarray(Image.open('image10.png'))
+
+print(ZNCC(a,b))
+'''
