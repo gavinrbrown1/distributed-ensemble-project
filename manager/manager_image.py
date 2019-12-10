@@ -73,9 +73,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
     tryCache = useCache(basename)
     if tryCache[0] == False:
         # send image to classifiers and receive classification
-        response = ""
         response = callClassifiers(numClass, data, image_id)
-        print("Response from classifier: %s" % response)
         if response > -1:
             img = Image.open(basename)
             data = np.asarray(img, dtype='int32')
@@ -83,13 +81,23 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
             connectionSocket.sendall(("Image is of class %s" % response).encode())
         else:
             connectionSocket.sendall(("Image classification failed").encode())
+
+        #update cache hit stats
+        with open('cache_stats.txt', 'a') as f:
+            f.write(basename+',miss\n')
+
     else:
         #return cached decision
+        print("Image was found in cache")
         connectionSocket.sendall(("Image is of class %s" % tryCache[1]).encode())
     
         #can now delete image from manager folder (not from cache)
         os.remove(basename)        
   
+        #update cache hit stats
+        with open('cache_stats.txt', 'a') as f:
+            f.write(basename+',hit\n')
+
     # read sentence closing connection
     data = recv_try(connectionSocket, 4096)
 
@@ -123,7 +131,7 @@ if __name__=='__main__':
 
         # Accept the client request and create a new socket dedicated to the client
         connectionSocket, addr = serverSocket.accept()
-        print("A new client has joined!")
+        print("**A new client has joined!**")
         imgcounter +=1
         # Start a new thread for client that just joined
         start_new_thread(clientHandler, (connectionSocket, serverPort, imgcounter))
