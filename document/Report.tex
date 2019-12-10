@@ -5,10 +5,10 @@
 \usepackage{subcaption}
 \usepackage{graphicx}
 
-\title{Distributed Ensembles for Image Classification}
+\title{\vspace{-5ex} Distributed Ensembles for Image Classification}
 \usepackage{fullpage,comment}
 \author{Andrea Burns \and Gavin Brown \and Iden Kalemaj}
-\date{\today}
+\date{\vspace{-5ex}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cD}{\mathcal{D}}
 \newcommand{\cR}{\mathcal{R}}
@@ -58,35 +58,17 @@
 
 \begin{document}
 \maketitle
-\section{Links}
 \begin{itemize}
-	\item Github link: https://github.com/gavinrbrown1/distributed-ensemble-project
-	\item Slice name: Project5
+	\item \textbf{Github link:} https://github.com/gavinrbrown1/distributed-ensemble-project
+	\item \textbf{Slice name:} Project5
 \end{itemize}
-
+\vspace{-2ex}
 \section{Introduction}
 
 The general goal of image classification is to determine which of several fixed classes an image belongs to. 
 One common benchmark is the CIFAR-10 dataset \cite{cifar10}, which contains 32$\times$32 pixel images of ten different classes: airplanes, automobiles, birds, cats, deer, dogs, frogs, horse, ship, truck.
 We've included a selection of these images in Figure~\ref{fig:cifar10_images}.
 Image classification is an important machine learning task, as it is an initial step toward visual scene understanding -- a skill needed to interact with and reason about an environment (use cases include robot assistants, autonomous vehicles, etc).
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.2\textwidth}
-        \includegraphics[width=\textwidth]{image0.jpeg}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[b]{0.2\textwidth}
-        \includegraphics[width=\textwidth]{image3.jpeg}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[b]{0.2\textwidth}
-        \includegraphics[width=\textwidth]{image5.jpeg}
-    \end{subfigure}
-    \caption{A few images from CIFAR-10. From left to right: a dog, a truck, and an airplane.}
-    \label{fig:cifar10_images}
-\end{figure}
 
 Ensembling is a popular way to improve the performance of a machine learning task; an ensemble is a set of different classifiers that are ‘combined’ to make a collective, better decision on the task. 
 Such models are also sometimes called ``committees;'' for a reference see Chapter 14 of \cite{bishop}.
@@ -97,12 +79,37 @@ Lastly, we try hand-crafted caching tools that can act as short-cut decisions, t
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.2]{networksArchitecture.png}
-    \caption{Here we have a high level representation of the GENI architecture we set up. The primary components include a client, a manager, a caching mechanism which resides on the manager, and four classifiers which the manager can communicate with. Refer to text to see how these nodes interact.}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{image0.jpeg}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{image3.jpeg}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{image5.jpeg}
+    \end{subfigure}
+    \caption{A few images from CIFAR-10. From left to right: a dog, a truck, and an airplane.}
+    \label{fig:cifar10_images}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{networksArchitecture.png}
+    \caption{Here we have a high level representation of the GENI architecture we set up. The primary components include a client, a manager, a caching mechanism which resides on the manager, and four classifiers which the manager can communicate with.}
     \label{fig:architecture}
 \end{figure}
 
-A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists (zero-normalized cross correlation coefficient is deemed high enough between two images), then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}, and below we have a Finite State Machine characterizing the behavior of our system. The classifiers are grouped under the same state since they behave identically up to randomness.
+A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists (zero-normalized cross correlation coefficient is deemed high enough between two images), then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{FSM.png}
+    \caption{Finite State Machine characterizing the behavior of our system. The classifiers are grouped under the same state since they behave identically up to randomness.}
+    \label{fig:fsm}
+\end{figure}
+
 
 {\bf LEARNING OUTCOME GO HERE.} 
 They asked for them in the project document, so they'll surely be worth like 5\% of the overall grade.
@@ -156,7 +163,7 @@ Iden wrote the bulk of the socket code that allowed the machines to communicate.
 Gavin wrote the code to handle the prediction as well as modeling error and delay on the part of the classifier.
 
 
-\begin{thebibliography}{1}
+\footnotesize\begin{thebibliography}{1}
     \bibitem{bishop}
     Bishop, Christopher M. Pattern recognition and machine learning. Springer, 2006.
 
