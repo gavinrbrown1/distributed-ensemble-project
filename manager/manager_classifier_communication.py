@@ -10,7 +10,7 @@ from collections import Counter
 
 classifier_ip = ['172.17.1.10', '172.17.1.13', '172.17.1.12', '172.17.1.11']
 classifier_port = int(sys.argv[1])
-numClass = 1
+numClass = 4
 timeout_var = 3
 
 def recv_try(connectionSocket, numBytes):
@@ -36,7 +36,7 @@ def callClassifiers(numClass, image, image_id):
         sock.settimeout(timeout_var)
         
         # two classifiers experience delay
-        if i == 0 | i == 1:
+        if i == 0 | i == 1 | i == 2:
             sock.sendall(('ID %s' % image_id).encode())
             print("ID sent to class: %s" % image_id)
         # two other classifiers experience no delay

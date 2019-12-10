@@ -184,10 +184,10 @@ def useCache(pNew, mypath='./cache/'):
     currCache  = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
     for f in currCache:
-        cacheImg = Image.open(f)
+        cacheImg = Image.open(mypath + f)
         cacheData = np.asarray(cacheImg, dtype="int32")
 
-        newImg = Image.open(pNew)
+        newImg = Image.open(mypath + pNew)
         newData = np.asarray(newImg, dtype="int32")
         zncc = ZNCC(newData, cacheData) #cv2.imread(f, mode='RGB'))
         if zncc > thresh:

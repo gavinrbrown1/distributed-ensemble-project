@@ -112,8 +112,8 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
         with open(fn, 'a') as f:
             f.write(basename+',hit\n')
 
-     #can now delete image from manager folder (not from cache)
-     os.remove(basename)
+    #can now delete image from manager folder (not from cache)
+    os.remove(basename)
 
     # read sentence closing connection
     data = recv_try(connectionSocket, 4096)
