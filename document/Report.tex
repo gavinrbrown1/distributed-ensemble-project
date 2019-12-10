@@ -103,6 +103,15 @@ A client wishing to receive classification for an image connects to a manager an
 
 \section{Experimental methodology}
 
+\subsection{Caching and Sampling}
+
+When choosing how to test the performance of our system, we must specify how we select images to be classified.
+One method is to sample them uniformly at random from our test set, which matches how machine learning models are usually evaluated.
+This may not reflect how the system is used in practice: some images may occur far more than others, such as a automated security system that spends much of its time examining the same empty hallways.
+To model this we also sample from a prototypically ``long-tailed'' distribution, a simple form of the Zipf distribution discussed in Chapter 16 of \cite{mitzenmacher}, where each image $i$ is assigned a weight $w_i\in 1\ldots, N$
+    and is sampled with probability $p(i)\propto \frac{1}{w_i}$.
+Thus some images will keep reappearing while others will be very rare.
+
 \section{Results}
 
 \subsection{Usage instructions}
@@ -126,6 +135,9 @@ Gavin wrote the code to handle the prediction as well as modeling error and dela
 
     \bibitem{bishop}
     Bishop, Christopher M. Pattern recognition and machine learning. Springer, 2006.
+
+    \bibitem{mitzenmacher}
+    Mitzenmacher, Michael, and Eli Upfal. Probability and computing: randomization and probabilistic techniques in algorithms and data analysis. Cambridge university press, 2017.
 
 \end{thebibliography}
 

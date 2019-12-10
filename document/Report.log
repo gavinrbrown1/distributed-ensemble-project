@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  9 DEC 2019 19:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  9 DEC 2019 20:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -364,47 +364,47 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
-<image0.jpeg, id=38, 32.12pt x 32.12pt>
+<image0.jpeg, id=42, 32.12pt x 32.12pt>
 File: image0.jpeg Graphic file (type jpg)
 <use image0.jpeg>
 Package pdftex.def Info: image0.jpeg  used on input line 77.
 (pdftex.def)             Requested size: 93.94957pt x 93.95718pt.
-<image3.jpeg, id=39, 32.12pt x 32.12pt>
+<image3.jpeg, id=43, 32.12pt x 32.12pt>
 File: image3.jpeg Graphic file (type jpg)
 <use image3.jpeg>
 Package pdftex.def Info: image3.jpeg  used on input line 81.
 (pdftex.def)             Requested size: 93.94957pt x 93.95718pt.
-<image5.jpeg, id=40, 32.12pt x 32.12pt>
+<image5.jpeg, id=44, 32.12pt x 32.12pt>
 File: image5.jpeg Graphic file (type jpg)
 <use image5.jpeg>
 Package pdftex.def Info: image5.jpeg  used on input line 85.
 (pdftex.def)             Requested size: 93.94957pt x 93.95718pt.
  [1
 
-{/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image0.jpeg> <./image3.jpeg> <./image5.jpeg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+{/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image0.jpeg> <./image3.jpeg> <./image5.jpeg>] [2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 146.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 146.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 146.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 146.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: A398039B75FA4DFB1730EE866C8D4A57;417.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
+(rerunfilecheck)             Checksum: 08C5B667B057F774A79A2E4689FF13C2;486.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 146.
  ) 
 Here is how much of TeX's memory you used:
- 8288 strings out of 494060
- 122534 string characters out of 6163035
- 216249 words of memory out of 5000000
- 11880 multiletter control sequences out of 15000+600000
+ 8293 strings out of 494060
+ 122601 string characters out of 6163035
+ 216286 words of memory out of 5000000
+ 11882 multiletter control sequences out of 15000+600000
  12443 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 42i,8n,40p,520b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Report.pdf (2 pages, 71073 bytes).
+ 42i,8n,40p,520b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Report.pdf (3 pages, 105412 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 80 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
