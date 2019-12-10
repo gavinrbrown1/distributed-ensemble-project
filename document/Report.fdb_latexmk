@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1576002953 "Report.tex" "Report.pdf" "Report" 1576002954
+["pdflatex"] 1576015688 "Report.tex" "Report.pdf" "Report" 1576015688
   "/usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -75,18 +75,20 @@
   "/usr/local/texlive/2019basic/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty" 1463608860 9581 023642318cef9f4677efe364de1e2a27 ""
   "/usr/local/texlive/2019basic/texmf-dist/tex/latex/preprint/fullpage.sty" 1137110595 2789 05b418f78b224ec872f5b11081138605 ""
   "/usr/local/texlive/2019basic/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
+  "/usr/local/texlive/2019basic/texmf-dist/tex/latex/wrapfig/wrapfig.sty" 1137111090 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "/usr/local/texlive/2019basic/texmf-dist/tex/latex/xcolor/xcolor.sty" 1463002160 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/local/texlive/2019basic/texmf-dist/web2c/texmf.cnf" 1553552136 35430 ca24fb44b873d21ac4c63d01600decd4 ""
   "/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1566055233 79187 f429bf030483b0c6385f072c5d9f3a28 ""
   "/usr/local/texlive/2019basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1564533388 2678474 8cd1d52d7afd3cb650818533984dc21a ""
   "/usr/local/texlive/2019basic/texmf.cnf" 1554925189 628 6cfff46d1fd9ae1d47a88551035aa162 ""
   "FSM.png" 1576000778 303967 5efa6f11c2fa8c5224548933d0ceda78 ""
-  "Report.aux" 1576002954 3331 4d7c1f4e0b9779098f032f99d65e9fde "pdflatex"
-  "Report.out" 1576002954 469 1f5af408622d4e6dd0cc60b7cc1c2c3e "pdflatex"
-  "Report.tex" 1576002952 11982 91d946dd3adc125bc76aa4cc9961eb2a ""
+  "Report.aux" 1576015688 3359 42c6dcc852cf0c33b571e36776fa2b00 "pdflatex"
+  "Report.out" 1576015688 469 1f5af408622d4e6dd0cc60b7cc1c2c3e "pdflatex"
+  "Report.tex" 1576015686 12168 76b6ab0c6838c55580f4bee592ea8087 ""
   "image0.jpeg" 1575936270 916 35149b2cef822872f89b17f2ff4ef891 ""
   "image3.jpeg" 1575936764 960 742fd849b6f6fbeccf266975569bfe22 ""
   "image5.jpeg" 1575936771 896 0c30c3b458b1c391efe17ea83e311401 ""
+  "image6.jpeg" 1576015635 921 4d05a8bb466cf6435ecce6ebd0cfad89 ""
   "networksArchitecture.png" 1575988895 163419 3792c14e21c6ce14924eda0ab42cc6e4 ""
   (generated)
   "Report.log"

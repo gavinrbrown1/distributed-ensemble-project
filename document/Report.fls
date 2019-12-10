@@ -82,6 +82,8 @@ INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/graphics/trig.sty
 INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/graphics/trig.sty
 INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/preprint/fullpage.sty
 INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/preprint/fullpage.sty
 INPUT /usr/local/texlive/2019basic/texmf-dist/tex/latex/comment/comment.sty
@@ -156,6 +158,9 @@ INPUT ./image3.jpeg
 INPUT image5.jpeg
 INPUT ./image5.jpeg
 INPUT ./image5.jpeg
+INPUT image6.jpeg
+INPUT ./image6.jpeg
+INPUT ./image6.jpeg
 INPUT networksArchitecture.png
 INPUT ./networksArchitecture.png
 INPUT ./networksArchitecture.png
