@@ -147,11 +147,11 @@ The results mostly matched what we expected, showing clear tradeoffs between acc
 {\bf Was anything in the plots surprising?
 Probably something should have surprised us.}
 
-Here are some extensions:
-\begin{itemize}
-    \item Add more classifiers, allow them to scale up and down.
-    \item Implement faster caching algorithms, and/or more sophisticated measures of image closeness.
-\end{itemize}
+Several natural extensions present themselves.
+Currently we use a fixed number of classifiers, but we could extend our system to gracefully scale up and down as machines come on and offline.
+From the point of the view of the user, we used only one client in order to highlight the effects of the cache and unreliable classification.
+We could extend our manager to handle concurrent requests from multiple clients, and set up the classifiers to process images sequentially instead of one over each connection.
+Our model also currently sets up a unique TCP connection for each image, but depending on the client's needs it may be more efficient to keep one connection for several images.
 
 \section{Division of labor}
 
