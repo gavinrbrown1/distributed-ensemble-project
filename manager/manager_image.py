@@ -15,6 +15,20 @@ from manager_classifier_communication import callClassifiers
 # Decide on number of classifiers used
 numClass = 1
 
+def clearCache(path='./cache/'):
+    #remove cache images
+    currCache = [img for img in os.listdir(path)]
+    for i in currCache:
+        os.remove(path + i)    
+    
+    #remove cache decisions
+    os.remove('./cache_decisions.txt')
+
+    #remove pairwise distances
+    os.remove('./pairwise_distances.txt')
+
+    print('Clearing cache, time for a new experiment!')
+
 # function to receive message from socket
 def recv_try(connectionSocket, numBytes):
     data = ""
@@ -40,6 +54,7 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
       
     # read ID
     data = recv_try(connectionSocket, 4096)
+    image_id = ''
 
     if data[0:2] == 'ID':
         tmp = data.split()
@@ -81,9 +96,10 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
             connectionSocket.sendall(("Image is of class %s" % response).encode())
         else:
             connectionSocket.sendall(("Image classification failed").encode())
-
+ 
+        fn = 'cache_stats_' + image_id + '.txt'
         #update cache hit stats
-        with open('cache_stats.txt', 'a') as f:
+        with open(fn, 'a') as f:
             f.write(basename+',miss\n')
 
     else:
@@ -94,8 +110,9 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
         #can now delete image from manager folder (not from cache)
         os.remove(basename)        
   
+        fn = 'cache_stats_' + image_id + '.txt'
         #update cache hit stats
-        with open('cache_stats.txt', 'a') as f:
+        with open(fn, 'a') as f:
             f.write(basename+',hit\n')
 
     # read sentence closing connection
@@ -133,6 +150,12 @@ if __name__=='__main__':
         connectionSocket, addr = serverSocket.accept()
         print("**A new client has joined!**")
         imgcounter +=1
+
+        if imgcounter >= 1000:
+            #new experiment, start anew
+            clearCache()
+            imgcounter = 0
+
         # Start a new thread for client that just joined
         start_new_thread(clientHandler, (connectionSocket, serverPort, imgcounter))
 
