@@ -11,7 +11,7 @@ from collections import Counter
 classifier_ip = ['172.17.1.10', '172.17.1.13', '172.17.1.12', '172.17.1.11']
 classifier_port = int(sys.argv[1])
 numClass = 1
-
+timeout_var = 1
 
 def recv_try(connectionSocket, numBytes):
     data = ""
@@ -33,7 +33,7 @@ def callClassifiers(numClass, image, image_id):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_address = (classifier_ip[i], classifier_port)
         sock.connect(server_address)
-        sock.settimeout(7)
+        sock.settimeout(timeout_var)
 
         sock.sendall(('ID %s' % image_id).encode())
         answer = recv_try(sock, 4096)
@@ -43,7 +43,6 @@ def callClassifiers(numClass, image, image_id):
   
             # check server reply
             answer = recv_try(sock, 4096)
-            print('answer = %s' % answer)
   
             if answer[:5]== 'CLASS':
                 tmp = answer.split()
@@ -51,6 +50,7 @@ def callClassifiers(numClass, image, image_id):
                 answers.append(classf)
                 sock.sendall(("Closing connection").encode())
                 sock.close()
+                print('answer = %s' % answer)
                 print('Classification was successful')
             else:
                 print('Timer for classifier %s expired' % i)
