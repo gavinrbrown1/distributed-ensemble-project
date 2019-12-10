@@ -2,6 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsthm,amssymb,algorithm,hyperref,xcolor}
 \usepackage[noend]{algpseudocode}
+\usepackage{subcaption}
+\usepackage{graphicx}
+
 \title{Distributed Ensembles for Image Classification}
 \usepackage{fullpage,comment}
 \author{Andrea Burns \and Gavin Brown \and Iden Kalemaj}
@@ -61,12 +64,29 @@
 	\item Slice name: Project5
 \end{itemize}
 
-
 \section{Introduction}
 
 The general goal of image classification is to determine which of several fixed classes an image belongs to. 
-One common benchmark is the CIFAR-10 dataset \cite{cifar10}, which contains 32$\times$32 pixel images of ten different classes: 
+One common benchmark is the CIFAR-10 dataset \cite{cifar10}, which contains 32$\times$32 pixel images of ten different classes: airplanes, automobiles, birds, cats, deer, dogs, frogs, horse, ship, truck.
+We've included a selection of these images in Figure~\ref{fig:cifar10_images}.
 Image recognition is an important machine learning task, as it is an initial step toward visual scene understanding -- a skill needed to interact with and reason about an environment (use cases include robot assistants, autonomous vehicles, etc).
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{image0.jpeg}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{image3.jpeg}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{image5.jpeg}
+    \end{subfigure}
+    \caption{A few images from CIFAR-10. From left to right: a dog, a truck, and an airplane.}
+    \label{fig:cifar10_images}
+\end{figure}
 
 Ensembling is a popular way to improve the performance of a machine learning task; an ensemble is a set of different classifiers that are ‘combined’ to make a collective, better decision on the task. The core idea is that combining many weak learners results in a strong learner. Two common ways to ensemble different classifiers are bagging and boosting. In bagging, classifiers are learned independently, whereas boosting tries to learn new models which succeed in cases that previous classifiers failed. 
 
