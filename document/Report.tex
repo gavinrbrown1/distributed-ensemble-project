@@ -88,7 +88,11 @@ Image recognition is an important machine learning task, as it is an initial ste
     \label{fig:cifar10_images}
 \end{figure}
 
-Ensembling is a popular way to improve the performance of a machine learning task; an ensemble is a set of different classifiers that are ‘combined’ to make a collective, better decision on the task. The core idea is that combining many weak learners results in a strong learner. Two common ways to ensemble different classifiers are bagging and boosting. In bagging, classifiers are learned independently, whereas boosting tries to learn new models which succeed in cases that previous classifiers failed. 
+Ensembling is a popular way to improve the performance of a machine learning task; an ensemble is a set of different classifiers that are ‘combined’ to make a collective, better decision on the task. 
+For a reference see Chapter 14 of Bishop's \emph{Pattern Recognition and Machine Learning}~\cite{bishop}.
+%The core idea is that combining many weak learners results in a strong learner. 
+%Two common ways to ensemble different classifiers are bagging and boosting. In bagging, classifiers are learned independently, whereas boosting tries to learn new models which succeed in cases that previous classifiers failed. 
+
 
 In this experiment we distribute 4 independent classifiers across different network nodes (servers) to be used as an ensemble, similar to bagging, in which we take a majority vote of their decisions and use that as the final classification result. This distributed system allows us to investigate latency versus performance benefits when introducing additional classifiers to the ensemble. Lastly, we try hand-crafted caching tools that can act as short-cut decisions, to see the impact on end-to-end delay.
 

@@ -155,6 +155,7 @@ INPUT ./image3.jpeg
 INPUT image5.jpeg
 INPUT ./image5.jpeg
 INPUT ./image5.jpeg
+INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT Report.aux
@@ -164,3 +165,4 @@ INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
