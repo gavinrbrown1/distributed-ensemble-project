@@ -5,10 +5,12 @@ from time import gmtime, strftime
 from random import randint
 
 # list of image names  used in the experiment
-images = ["apple-touch-icon-144x144-precomposed.png"]
+image_sequence = [8, 9, 10, 11]
+images = [("images/image" + str(x) + ".jpeg") for x in image_sequence] 
+
 # list of corresponding id, indicating network parameters used
 # for each image in the experiment
-ids = [1]
+ids = 4*['0.0.0']
 
 HOST = '198.248.248.133'
 
