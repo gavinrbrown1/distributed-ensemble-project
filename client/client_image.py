@@ -4,6 +4,10 @@ import sys
 from time import gmtime, strftime
 from random import randint
 
+def sample_index(k, method, seed):
+    """returns a length-k list, sampled with replacement from images"""
+    return ordering
+
 # list of image names  used in the experiment
 images = ["apple-touch-icon-144x144-precomposed.png"]
 # list of corresponding id, indicating network parameters used
