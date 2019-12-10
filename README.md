@@ -10,6 +10,7 @@ Here are some things that need done.
   3. Do we want to submit a simplified version that excludes the ability to rerun experiments?
 * Report
   1. Final proof-reading
+  2. Add screenshots to usage instructions
 * Supplementary Materials, incl. stuff for report
   1. Video demo
   2. Rspec (put on github)
