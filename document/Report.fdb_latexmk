@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1575991842 "Report.tex" "Report.pdf" "Report" 1575991843
+["pdflatex"] 1575992769 "Report.tex" "Report.pdf" "Report" 1575992770
   "/usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -79,15 +79,15 @@
   "/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1566055233 79187 f429bf030483b0c6385f072c5d9f3a28 ""
   "/usr/local/texlive/2019basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1564533388 2678474 8cd1d52d7afd3cb650818533984dc21a ""
   "/usr/local/texlive/2019basic/texmf.cnf" 1554925189 628 6cfff46d1fd9ae1d47a88551035aa162 ""
-  "Report.aux" 1575991843 3002 bd736459336905e49ad8284cc8c7c565 "pdflatex"
-  "Report.out" 1575991843 486 08c5b667b057f774a79a2e4689ff13c2 "pdflatex"
-  "Report.tex" 1575991840 10403 2baefc51972d660dfd87e031c7d6efd1 ""
+  "Report.aux" 1575992770 3025 fccf51277fb19beb9b6e78cb15343e5a "pdflatex"
+  "Report.out" 1575992770 509 7bb2d2434fe8f209a7719b6e321ac207 "pdflatex"
+  "Report.tex" 1575992769 11409 27a4b635b884657313a7631fabbd5a5d ""
   "image0.jpeg" 1575936270 916 35149b2cef822872f89b17f2ff4ef891 ""
   "image3.jpeg" 1575936764 960 742fd849b6f6fbeccf266975569bfe22 ""
   "image5.jpeg" 1575936771 896 0c30c3b458b1c391efe17ea83e311401 ""
   "networksArchitecture.png" 1575988895 163419 3792c14e21c6ce14924eda0ab42cc6e4 ""
   (generated)
-  "Report.pdf"
-  "Report.out"
   "Report.log"
+  "Report.pdf"
   "Report.aux"
+  "Report.out"

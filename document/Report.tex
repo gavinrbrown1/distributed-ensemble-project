@@ -104,8 +104,8 @@ Lastly, we try hand-crafted caching tools that can act as short-cut decisions, t
 
 A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists (zero-normalized cross correlation coefficient is deemed high enough between two images), then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}, and below we have a Finite State Machine characterizing the behavior of our system. The classifiers are grouped under the same state since they behave identically up to randomness.
 
-
-
+{\bf LEARNING OUTCOME GO HERE.} 
+They asked for them in the project document, so they'll surely be worth like 5\% of the overall grade.
 
 \section{Experimental methodology}
 
@@ -127,7 +127,21 @@ We decide to kick out the \textbf{pair} of closest images in terms of L2/Euclide
 \subsection{Usage instructions}
 \subsection{Analysis results}
 
-\section{Conclusion}
+\section{Conclusions and Future Extensions}
+
+We found that developing this system and running the experiments was a very rewarding process.
+It was enjoyable to see the natural way our research interests of vision, machine learning, and probabilistic algorithms mapped neatly onto the concepts we've learned in class.
+We also learned a lot through the process of pulling together the many components and defining our own protocols to interact across machines.
+The results mostly matched what we expected, showing clear tradeoffs between accuracy, space requirements, and latency.
+
+{\bf Was anything in the plots surprising?
+Probably something should have surprised us.}
+
+Here are some extensions:
+\begin{itemize}
+    \item Add more classifiers, allow them to scale up and down.
+    \item Implement faster caching algorithms, and/or more sophisticated measures of image closeness.
+\end{itemize}
 
 \section{Division of labor}
 
@@ -140,11 +154,11 @@ Gavin wrote the code to handle the prediction as well as modeling error and dela
 
 
 \begin{thebibliography}{1}
-    \bibitem{cifar10}
-    Krizhevsky, Alex, and Geoffrey Hinton. Learning multiple layers of features from tiny images. Vol. 1. No. 4. Technical report, University of Toronto, 2009.
-
     \bibitem{bishop}
     Bishop, Christopher M. Pattern recognition and machine learning. Springer, 2006.
+
+    \bibitem{cifar10}
+    Krizhevsky, Alex, and Geoffrey Hinton. Learning multiple layers of features from tiny images. Vol. 1. No. 4. Technical report, University of Toronto, 2009.
 
     \bibitem{mitzenmacher}
     Mitzenmacher, Michael, and Eli Upfal. Probability and computing: randomization and probabilistic techniques in algorithms and data analysis. Cambridge university press, 2017.
