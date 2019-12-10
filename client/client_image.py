@@ -38,7 +38,7 @@ with open('experiments.csv') as csv_file:
 
 
 total_runs = 2
-images_per_run = 10
+images_per_run = 100
 
 # iterate over experiments
 for experiment_number in range(experiment_counter):
@@ -60,7 +60,7 @@ for experiment_number in range(experiment_counter):
     
         # list of corresponding id, indicating network parameters used
         # for each image in the experiment
-        ids = len(image_sequence)*base_id
+        ids = len(image_sequence)*[base_id]
     
         HOST = '198.248.248.133'
     
@@ -91,7 +91,7 @@ for experiment_number in range(experiment_counter):
                 sock.close()
     	
     	    # send image ID
-            print('Sending ID...')
+            print('Sending ID: %s' % ids[i])
             start = time()
             sock.sendall(('ID %s' % ids[i]).encode())
             answer = ""
