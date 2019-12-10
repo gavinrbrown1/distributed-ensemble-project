@@ -10,13 +10,13 @@ def sample_index(n, method, seed):
     random.seed(seed)
     if method == "uniform":
         # just sample uniformly
-        return random.sample(range(1000), k=n)
+        return random.choices(range(1000), k=n)
     elif method == "power":
         # according to a randomly-chosen power law distribution
         weights = list(range(1000))
         random.shuffle(weights)
         weights = [1/(1+w) for w in weights] # add one to each, because python starts with zero
-        return random.sample(range(1000), weights=weights, k=n)
+        return random.choices(range(1000), weights=weights, k=n)
     else:
         print('ERROR! Incorrect method name specific')
         return None
@@ -92,7 +92,7 @@ for experiment_number in range(experiment_counter):
     	
     	    # send image ID
             print('Sending ID...')
-            start = time.time()
+            start = time()
             sock.sendall(('ID %s' % ids[i]).encode())
             answer = ""
             try:
@@ -100,25 +100,29 @@ for experiment_number in range(experiment_counter):
                 print('answer = %s' % answer)
             except:
                 sock.close()
-        
+       
     	    # send image
             if answer[:6] == 'GOT ID':
-    	        print('Sending image...')
-    	        sock.sendall(bytes)
-    	        # check server reply
-    	        answer = ""
-    	        try:
-    	            answer = sock.recv(4096).decode()
-    	            print('answer = %s' % answer)
-    	            end = time.time()
-    	            predicted_labels.append(str(answer))
-    	            communication_times.append(str(end-start))
-    	        except:
-    	            sock.close()
-    	    
-    	        if answer[:17] == 'Image is of class':
-    	            sock.sendall(("Closing connection").encode())
-    	            sock.close()
+                print('Sending image...')
+                sock.sendall(bytes)
+                # check server reply
+                answer = ""
+                try:
+                    answer = sock.recv(4096).decode()
+                    print('answer = %s' % answer)
+                    end = time()
+                    communication_times.append(str(end-start))
+                except:
+                    sock.close()
+                
+                
+                if answer[:17] == 'Image is of class':
+                    sock.sendall(("Closing connection").encode())
+                    predicted_labels.append(int(answer[18]))
+                    sock.close()
+                else:
+                    predicted_labels.append(-1)
+                    sock.close()
     	
             myfile.close()
     
