@@ -2,14 +2,27 @@ import random
 import socket, select
 import sys
 from time import gmtime, strftime
-from random import randint
+import random
 
 def sample_index(k, method, seed):
-    """returns a length-k list, sampled with replacement from images"""
-    return ordering
+    """returns a length-k list, sampled with replacement from images according to method"""
+    random.seed(seed)
+    if method == "uniform":
+        # just sample uniformly
+        return random.choices(range(1000), k=k)
+    elif method == "power":
+        # according to a randomly-chosen power law distribution
+        weights = list(range(1000))
+        random.shuffle(weights)
+        weights = [1/(1+w) for w in weights] # add one to each, because python starts with zero
+        return random.choices(range(1000), weights=weights, k=k)
+    else:
+        print('ERROR! Incorrect method name specific')
+        return None
 
 # list of image names  used in the experiment
-image_sequence = [8, 9, 10, 11]
+image_sequence = sample_index(100, 'power', 655)
+#image_sequence = [8, 9, 10, 11]
 images = [("images/image" + str(x) + ".jpeg") for x in image_sequence] 
 
 # list of corresponding id, indicating network parameters used
