@@ -159,8 +159,9 @@ def updateCache(fname, pNew, dNew, mypath='./cache/'):
         #we need to add its pairwise distance to the known distances
         addNewPairwise(fname)
         #print(type(pNew))
-        im = Image.fromarray(pNew, mode="RGB")
-        im.save(mypath + fname)
+        #im = Image.fromarray(pNew, mode="RGB")
+        with open(mypath + fname, 'w') as f:
+            f.write(pNew)
         
         with open('cache_decisions.txt', 'a') as f:
             f.write(fname + "," + str(dNew) + '\n')
@@ -202,9 +203,5 @@ def useCache(pNew, mypath='./cache/'):
     #also need to update cache now with new sample, manager has to call update fn
     return [False, None]
 
-'''
-a = np.asarray(Image.open('./cache/image0.png'))
-b = np.asarray(Image.open('image10.png'))
 
-print(ZNCC(a,b))
-'''
+
