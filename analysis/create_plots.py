@@ -72,32 +72,41 @@ if False:
 # accuracy and error probability
 if True:
     starting_experiment = 0
-    num_exp = 1
+    num_exp = 4
     num_runs = 3 
-    total_acc = num_exp*[0]
+    accs = np.zeros((num_exp, num_runs))
+    #total_acc = num_exp*[0]
     probs = [0.0, 0.1, 0.2, 0.3]
     for exp in range(num_exp):
         for run in range(num_runs):
             filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
             print(filename)
             results = read_in_csv(filename)
-            print('sample results:')
-            for result in results[:10]:
-                print(result)
-            print()
-            acc = accuracy(results, labels)
-            print(acc)
-            print()
-            total_acc[exp] += acc
-    sys.exit()
-    accs = [acc / num_runs for acc in total_acc]
+            #print('sample results:')
+            #for result in results[:10]:
+            #    print(result)
+            #print()
+            accs[exp, run] = accuracy(results, labels)
+            #print(acc)
+            #print()
+            #total_acc[exp] += acc
+    #accs = [acc / num_runs for acc in total_acc]
 
-    plt.plot(probs, accs, label='accuracies')
+    # plot as lines
+    plt.plot(probs, np.mean(accs, axis=1), label='accuracies')
     plt.xlabel('Probability of Error')
     plt.ylabel('Average Accuracy')
     plt.title('Prediction Accuracy and Classifier Error')
-    #plt.legend()
-    plt.savefig('plot_1.png')
+    plt.savefig('plot_1_single_line.png')
+    #plt.clf()
+
+    # plot individual points
+    for run in range(num_runs):
+        plt.plot(probs, accs[:, run], 'bo')
+    plt.xlabel('Probability of Error')
+    plt.ylabel('Accuracy')
+    plt.title('Prediction Accuracy and Classifier Error')
+    plt.savefig('plot_1_individual_points.png')
 
 # Plot 2
 # same as above, except random delay
