@@ -67,15 +67,25 @@ if False:
 # accuracy and error probability
 if True:
     starting_experiment = 0
-    num_exp = 6
-    num_runs = 10
+    num_exp = 4
+    num_runs = 3 
     total_acc = num_exp*[0]
-    probs = [0,1,2,3,4,5]
+    probs = [0,1,2,3]
     for exp in range(num_exp):
         for run in range(num_runs):
             filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
             results = read_in_csv(filename)
-            acc =
+            acc = accuracy(results, labels)
+            total_acc[exp] += acc
+    accs = [acc / num_runs for acc in total_acc]
+
+    plt.plot(probs, accs, label='accuracies')
+    plt.xlabel('Probability of Error')
+    plt.ylabel('Average Accuracy')
+    plt.title('Prediction Accuracy and Classifier Error')
+    #plt.legend()
+    plt.savefig('plot_1.png')
+
             
 
 
