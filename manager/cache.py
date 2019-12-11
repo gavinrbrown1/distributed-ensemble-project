@@ -52,7 +52,10 @@ def ZNCC(p0,p1):
 #compute L2 distance between images
 #takes in image names, not np arrays yet
 def l2(p0, p1):
-    img0 = Image.open(p0)
+    try:
+        img0 = Image.open(p0)
+    except:
+        img0 = Image.open('./cache/' +  p0)
     #img.load()
     np0 = np.asarray(img0, dtype="int32" )
 
@@ -154,7 +157,7 @@ def updateCache(fname, pNew, dNew, mypath='./cache/'):
     #get num of images in current cache folder
     currCache  = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     cacheSize = len(currCache) 
-    if cacheSize < 100:
+    if cacheSize < 30:
         #in addition to adding this to the cache
         #we need to add its pairwise distance to the known distances
         addNewPairwise(fname)
