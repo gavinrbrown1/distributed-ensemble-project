@@ -70,7 +70,7 @@ if True:
     num_exp = 4
     num_runs = 3 
     total_acc = num_exp*[0]
-    probs = [0,1,2,3]
+    probs = [0.0, 0.1, 0.2, 0.3]
     for exp in range(num_exp):
         for run in range(num_runs):
             filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
