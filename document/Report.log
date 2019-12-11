@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  11 DEC 2019 18:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  11 DEC 2019 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -440,13 +440,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
 Here is how much of TeX's memory you used:
  8391 strings out of 494060
  124161 string characters out of 6163035
- 221200 words of memory out of 5000000
+ 221204 words of memory out of 5000000
  11964 multiletter control sequences out of 15000+600000
  12403 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  42i,8n,40p,1125b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (5 pages, 472616 bytes).
+Output written on Report.pdf (5 pages, 472635 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream
