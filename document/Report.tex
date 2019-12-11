@@ -114,7 +114,6 @@ Finally, we hope to better understand how distributed approaches may benefit mac
 
 \section{Experimental methodology}
 
-
 \subsection{Caching and Sampling}
 
 When choosing how to test the performance of our system, we must specify how we select images to be classified.
@@ -144,6 +143,17 @@ Once the resources are set up on GENI, the user must start a script on each mach
 The system details are listed elsewhere, but the user-relevant details are in the client script, which reads an image file, opens a TCP connection with the manager, and waits for a classification.
 
 \subsection{Analysis Results}
+
+\begin{wraptable}{l}{0.27\textwidth}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Cache & Unif. & Power \\ \hline
+        15 & - & - \\ \hline
+        30 & - & - \\ \hline
+    \end{tabular}
+    \label{table}
+    \caption{Average communication times.}% for different cache sizes and sampling distributions: uniform and the power law $p(i)\propto \frac {1}{i}$.}
+\end{wraptable}
 
 \section{Conclusions and Future Extensions}
 

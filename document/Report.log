@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  10 DEC 2019 19:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  11 DEC 2019 16:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -403,32 +403,36 @@ Package pdftex.def Info: networksArchitecture.png  used on input line 104.
 <FSM.png, id=60, 2246.3925pt x 1180.41pt>
 File: FSM.png Graphic file (type png)
 <use FSM.png>
-Package pdftex.def Info: FSM.png  used on input line 129.
+Package pdftex.def Info: FSM.png  used on input line 128.
 (pdftex.def)             Requested size: 336.94434pt x 177.05386pt.
  [2 <./networksArchitecture.png>] [3 <./FSM.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
+
+Package wrapfig Warning: Stationary wraptable forced to float on input line 158.
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 759826F92DCC7E2C1B11DCA8E084EE6C;469.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 8364 strings out of 494060
- 123651 string characters out of 6163035
- 221044 words of memory out of 5000000
- 11944 multiletter control sequences out of 15000+600000
+ 8369 strings out of 494060
+ 123717 string characters out of 6163035
+ 221116 words of memory out of 5000000
+ 11947 multiletter control sequences out of 15000+600000
  12403 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 42i,7n,40p,1125b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,40p,1125b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (4 pages, 410300 bytes).
+Output written on Report.pdf (5 pages, 411188 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
  95 words of extra memory for PDF output out of 10000 (max. 10000000)
 
