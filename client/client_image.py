@@ -37,8 +37,8 @@ with open('experiments.csv') as csv_file:
 
 
 
-total_runs = 10
-images_per_run = 1000
+total_runs = 3
+images_per_run = 200
 
 # iterate over experiments
 for experiment_number in range(experiment_counter-1):
