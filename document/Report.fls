@@ -177,6 +177,8 @@ INPUT ./plot_2_line_and_points.png
 INPUT ./plot_2_line_and_points.png
 INPUT plot_1_line_and_points.png
 INPUT ./plot_1_line_and_points.png
+INPUT plot_1_line_and_points.png
+INPUT ./plot_1_line_and_points.png
 INPUT Report.aux
 INPUT ./Report.out
 INPUT ./Report.out

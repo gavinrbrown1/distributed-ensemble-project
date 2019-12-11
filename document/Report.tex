@@ -144,19 +144,30 @@ The system details are listed elsewhere, but the user-relevant details are in th
 
 \subsection{Analysis Results}
 
-As you can see in Figure 
+As you can see in Figure~\ref{fig:results}, our system's behavior changed significantly with different parameters.
+On the top left, we can see that decreasing the reliability of our individual classifiers reduced the overall accuracy, but by a lower amount: 
+    even when each classifier had a 30\% chance of answering randomly, our average accuracy was over 80\%.
+On the top right we see how random delays affect communication time: as expected, they increase it!
+On the bottom left we see how random delays affect accuracy (through the timeout mechanism).
+This is a little hard to interpret - it's possible more experiments are needed.
+On the bottom left we visualize how the cache is filled over time.
+At the beginning it fills up until some saturation, and the power law always has more cache hits.
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{plot_1_line_and_points.png}
     \end{subfigure}
     ~
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{plot_2_line_and_points.png}
     \end{subfigure}
+    \\
+    \begin{subfigure}{0.35\textwidth}
+        \includegraphics[width=\textwidth]{plot_1_line_and_points.png}
+    \end{subfigure}
     ~
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{plot_1_line_and_points.png}
     \end{subfigure}
     \caption{Results!}
