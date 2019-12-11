@@ -146,7 +146,7 @@ The system details are listed elsewhere, but the user-relevant details are in th
     \begin{tabular}{|c|c|c|}
         \hline
         Cache &  Unif. &  Power \\ \hline \hline
-        15 & - & - \\ \hline
+        15 & 1.69 & 1.27 \\ \hline
         30 & 2.11 & 1.53 \\ \hline
     \end{tabular}
     \caption{Average communication times, in seconds.}% for different cache sizes and sampling distributions: uniform and the power law $p(i)\propto \frac {1}{i}$.}
@@ -161,8 +161,8 @@ On the bottom left we see how random delays affect accuracy (through the timeout
 This is a little hard to interpret - it's possible more experiments are needed.
 On the bottom left we visualize how the cache is used over time: while the uniform distribution rarely gets used, the power law linearity means roughly one in three requests hits the cache.
 
-Table~\ref{tab:cache} shows how the larger cache sped up the system, and that the uniform sampling utilized the cache at a lower rate.
-
+Table~\ref{tab:cache} that the uniform sampling utilized the cache at a lower rate than the power law.
+The smaller cache was faster, possibly because of the overhead of recomputing.
 
 \begin{figure}
     \centering
