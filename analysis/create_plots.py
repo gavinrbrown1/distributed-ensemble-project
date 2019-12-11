@@ -68,9 +68,37 @@ if False:
     plt.legend()
     plt.savefig('comm_time_vs_cache_size.png')
 
+# Table results
+if True:
+    starting_experiment = 4
+    num_runs = 3 
+    times = np.zeros(num_runs)
+    for run in range(num_runs):
+        filename = "../results/results_experiment"+str(starting_experiment)+'_run'+str(run)+'.csv'
+        results = read_in_csv(filename)
+        times[run] = average_time(results)
+    # report out average
+    print('uniform, cache=30, average')
+    print(np.mean(times))
+    print()
+
+    starting_experiment = 0
+    num_runs = 3 
+    times = np.zeros(num_runs)
+    for run in range(num_runs):
+        filename = "../results/results_experiment"+str(starting_experiment)+'_run'+str(run)+'.csv'
+        results = read_in_csv(filename)
+        times[run] = average_time(results)
+    # report out average
+    print('power, cache=30, average')
+    print(np.mean(times))
+    print()
+
+
+
 # Plot 1
 # accuracy and error probability
-if True:
+if False:
     starting_experiment = 4
     num_exp = 4
     num_runs = 3 
@@ -102,7 +130,7 @@ if True:
 
 # Plot 2
 # same as above, except random delay
-if True:
+if False:
     starting_experiment = 8
     num_exp = 4
     num_runs = 3 
@@ -131,7 +159,7 @@ if True:
 
 # Plot 3
 # same as above, except random delay and time 
-if True:
+if False:
     starting_experiment = 8
     num_exp = 4
     num_runs = 3 

@@ -142,6 +142,17 @@ The system details are listed elsewhere, but the user-relevant details are in th
 
 \subsection{Analysis Results}
 
+\begin{wraptable}{l}{0.27\textwidth}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Cache & Unif. & Power \\ \hline
+        15 & - & - \\ \hline
+        30 & 2.11 & 1.53 \\ \hline
+    \end{tabular}
+    \caption{Average communication times, in seconds.}% for different cache sizes and sampling distributions: uniform and the power law $p(i)\propto \frac {1}{i}$.}
+    \label{tab:cache}
+\end{wraptable}
+
 As you can see in Figure~\ref{fig:results}, our system's behavior changed significantly with different parameters.
 On the top left, we can see that decreasing the reliability of our individual classifiers reduced the overall accuracy, but by a lower amount: 
     even when each classifier had a 30\% chance of answering randomly, our average accuracy was over 80\%.
@@ -149,6 +160,8 @@ On the top right we see how random delays affect communication time: as expected
 On the bottom left we see how random delays affect accuracy (through the timeout mechanism).
 This is a little hard to interpret - it's possible more experiments are needed.
 On the bottom left we visualize how the cache is used over time: while the uniform distribution rarely gets used, the power law linearity means roughly one in three requests hits the cache.
+
+Table~\ref{tab:cache} shows how the larger cache sped up the system, and that the uniform sampling utilized the cache at a lower rate.
 
 
 \begin{figure}
@@ -173,16 +186,6 @@ On the bottom left we visualize how the cache is used over time: while the unifo
 \end{figure}
 
 
-\begin{wraptable}{l}{0.27\textwidth}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        Cache & Unif. & Power \\ \hline
-        15 & - & - \\ \hline
-        30 & - & - \\ \hline
-    \end{tabular}
-    \label{tab:cache}
-    \caption{Average communication times, in seconds.}% for different cache sizes and sampling distributions: uniform and the power law $p(i)\propto \frac {1}{i}$.}
-\end{wraptable}
 
 \section{Conclusions and Future Extensions}
 
