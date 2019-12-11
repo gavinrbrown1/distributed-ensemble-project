@@ -116,12 +116,6 @@ Finally, we hope to better understand how distributed approaches may benefit mac
 
 \subsection{Caching and Sampling}
 
-When choosing how to test the performance of our system, we must specify how we select images to be classified.
-One method is to sample them uniformly at random from our test set, which matches how machine learning models are usually evaluated.
-This may not reflect how the system is used in practice: some images may occur far more than others, such as a automated security system that spends much of its time examining the same empty hallways.
-To model this we also sample from a prototypically ``long-tailed'' distribution, a simple form of the Zipf distribution discussed in Chapter 16 of \cite{mitzenmacher}, where each image $i$ is assigned a weight $w_i\in 1\ldots, N$
-    and is sampled with probability $p(i)\propto \frac{1}{w_i}$.
-Thus some images will keep reappearing while others will be very rare.
 
 \begin{figure}[t]
     \centering
@@ -133,6 +127,10 @@ Thus some images will keep reappearing while others will be very rare.
 The two key components of the cache are how we compare a new image from the client to the existing cache images, and how we choose to update the cache over time. To compare a new image to the cache images, the Zero-Normalized Cross-Correlation coefficient (ZNCC) is used. This is a image similarity metric that is invariant to brightness differences; its values range $[0,1]$, where a ZNCC value of one means the two images being compared are the same. We deem two images similar enough to use the cached decision if their ZNCC is greater than $0.9$. In the case that this threshold is not reached, we do not use the cache and have to communicate with the classifiers. Any time there is a cache miss, the new image is going to be added to the cache once the ensembled decision arrives. This means that we keep adding new samples to the cache until it is full. We experiment with cache sizes of 10, 50, and 100 to see the effects on latency. Once the cache is full, we need a protocol to kick out the least important samples being stored. We want our cache to keep track of the most useful image, decision pairs. 
 
 We decide to kick out the \textbf{pair} of closest images in terms of L2/Euclidean distance. We can think of this pair as being the least informative, since they are most similar to each other, and ideally our cache would include as much visual variety as possible. It is possible to use other image distance metrics, but for simplicity we stick with Euclidean. We remove two images, pulling inspiration from the many cases of exponential backoff we have seen in case. We note that this backoff isn't exponential. To optimize the computation of pairwise distances between images in the cache, we only compute the full $(n) \times (n-1)$ pairwise (where $n$ is the number of images in the cache) upon initialization. The first full cache results in the calculation of these distances, which are then stored in a text file. These values are only updated as samples are added or removed to the cache, never redundantly re-computing pairwise distances.
+
+We usually evaluate our models by sampling images uniformly from the test set.
+In a real system, though, some images may occur far more than others, such as security systems evaluating the same fixed scene.
+To model this we also sample from a ``long-tailed'' distribution, a simple form of Zipf distribution discussed in \cite{mitzenmacher}, so some images will be very frequent and the cache will be more useful.
 
 \section{Results}
 
