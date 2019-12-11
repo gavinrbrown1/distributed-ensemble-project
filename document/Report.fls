@@ -178,8 +178,9 @@ INPUT ./plot_3_final.png
 INPUT plot_2_final.png
 INPUT ./plot_2_final.png
 INPUT ./plot_2_final.png
-INPUT plot_1_final.png
-INPUT ./plot_1_final.png
+INPUT cache_over_time.png
+INPUT ./cache_over_time.png
+INPUT ./cache_over_time.png
 INPUT Report.aux
 INPUT ./Report.out
 INPUT ./Report.out

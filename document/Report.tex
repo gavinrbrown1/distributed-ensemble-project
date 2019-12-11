@@ -148,27 +148,27 @@ On the top left, we can see that decreasing the reliability of our individual cl
 On the top right we see how random delays affect communication time: as expected, they increase it!
 On the bottom left we see how random delays affect accuracy (through the timeout mechanism).
 This is a little hard to interpret - it's possible more experiments are needed.
-On the bottom left we visualize how the cache is filled over time.
-At the beginning it fills up until some saturation, and the power law always has more cache hits.
+On the bottom left we visualize how the cache is used over time: while the uniform distribution rarely gets used, the power law linearity means roughly one in three requests hits the cache.
+
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.35\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{plot_1_final.png}
     \end{subfigure}
     ~
-    \begin{subfigure}{0.35\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{plot_3_final.png}
     \end{subfigure}
     \\
-    \begin{subfigure}{0.35\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{plot_2_final.png}
     \end{subfigure}
     ~
-    \begin{subfigure}{0.35\textwidth}
-        \includegraphics[width=\textwidth]{plot_1_final.png}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{cache_over_time.png}
     \end{subfigure}
-    \caption{Results!}
+    \caption{Results from various experiments described in the text.}
     \label{fig:results}
 \end{figure}
 
