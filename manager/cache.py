@@ -160,7 +160,7 @@ def updateCache(fname, pNew, dNew, mypath='./cache/'):
         addNewPairwise(fname)
         #print(type(pNew))
         #im = Image.fromarray(pNew, mode="RGB")
-        with open(mypath + fname, 'w') as f:
+        with open(mypath + fname, 'wb') as f:
             f.write(pNew)
         
         with open('cache_decisions.txt', 'a') as f:
