@@ -13,7 +13,7 @@ import threading
 from manager_classifier_communication import callClassifiers
 
 # Decide on number of classifiers used
-numClass = 1
+numClass = 4
 
 def clearCache(path='./cache/'):
     #remove cache images
@@ -151,7 +151,7 @@ if __name__=='__main__':
         print("**A new client has joined!**")
         imgcounter +=1
 
-        if imgcounter >= 100:
+        if imgcounter >= 99:
             #new experiment, start anew
             clearCache()
             imgcounter = 0
