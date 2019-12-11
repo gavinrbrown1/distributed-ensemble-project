@@ -157,7 +157,7 @@ def updateCache(fname, pNew, dNew, mypath='./cache/'):
     #get num of images in current cache folder
     currCache  = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     cacheSize = len(currCache) 
-    if cacheSize < 100:
+    if cacheSize < 30:
         #in addition to adding this to the cache
         #we need to add its pairwise distance to the known distances
         addNewPairwise(fname)

@@ -151,7 +151,7 @@ if __name__=='__main__':
         print("**A new client has joined!**")
         imgcounter +=1
 
-        if imgcounter >= 999:
+        if imgcounter >= 199:
             #new experiment, start anew
             clearCache()
             imgcounter = 0
