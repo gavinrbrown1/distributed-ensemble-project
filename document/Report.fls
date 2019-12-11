@@ -164,11 +164,11 @@ INPUT ./image6.jpeg
 INPUT networksArchitecture.png
 INPUT ./networksArchitecture.png
 INPUT ./networksArchitecture.png
+INPUT /usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT FSM.png
 INPUT ./FSM.png
 INPUT ./FSM.png
-INPUT /usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT Report.aux
 INPUT ./Report.out
 INPUT ./Report.out
