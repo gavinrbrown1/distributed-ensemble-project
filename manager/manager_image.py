@@ -90,8 +90,8 @@ def clientHandler(connectionSocket, serverPort, imgcounter):
         # send image to classifiers and receive classification
         response = callClassifiers(numClass, data, image_id)
         if response > -1:
-            img = Image.open(basename)
-            data = np.asarray(img, dtype='int32')
+            #img = Image.open(basename)
+            #data = np.asarray(img, dtype='int32')
             updateCache(basename, data, response)
             connectionSocket.sendall(("Image is of class %s" % response).encode())
         else:
