@@ -11,8 +11,8 @@ from _thread import *
 from neural_network import load_network, classify
 
 
-error_probabilities = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
-exp_delays = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+error_probabilities = [0.0, 0.1, 0.2, 0.3]
+exp_delays = [0.0, 0.1, 0.2, 0.3, 0.4]
 fixed_delays = [0.1, 0.2]
 
 
