@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  11 DEC 2019 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  11 DEC 2019 17:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -400,35 +400,36 @@ Package pdftex.def Info: networksArchitecture.png  used on input line 104.
  [1
 
 {/usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image0.jpeg> <./image3.jpeg> <./image5.jpeg> <./image6.jpeg>]
-<FSM.png, id=60, 2246.3925pt x 1180.41pt>
+<FSM.png, id=59, 2246.3925pt x 1180.41pt>
 File: FSM.png Graphic file (type png)
 <use FSM.png>
-Package pdftex.def Info: FSM.png  used on input line 128.
+Package pdftex.def Info: FSM.png  used on input line 122.
 (pdftex.def)             Requested size: 336.94434pt x 177.05386pt.
  [2 <./networksArchitecture.png>] [3 <./FSM.png>]
-<plot_1_line_and_points.png, id=78, 462.528pt x 346.896pt>
-File: plot_1_line_and_points.png Graphic file (type png)
-<use plot_1_line_and_points.png>
-Package pdftex.def Info: plot_1_line_and_points.png  used on input line 157.
+<plot_1_final.png, id=75, 462.528pt x 346.896pt>
+File: plot_1_final.png Graphic file (type png)
+<use plot_1_final.png>
+Package pdftex.def Info: plot_1_final.png  used on input line 157.
 (pdftex.def)             Requested size: 164.41711pt x 123.31567pt.
-<plot_2_line_and_points.png, id=79, 462.528pt x 346.896pt>
-File: plot_2_line_and_points.png Graphic file (type png)
-<use plot_2_line_and_points.png>
-Package pdftex.def Info: plot_2_line_and_points.png  used on input line 161.
+<plot_3_final.png, id=76, 462.528pt x 346.896pt>
+File: plot_3_final.png Graphic file (type png)
+<use plot_3_final.png>
+Package pdftex.def Info: plot_3_final.png  used on input line 161.
 (pdftex.def)             Requested size: 164.41711pt x 123.31567pt.
-File: plot_1_line_and_points.png Graphic file (type png)
-<use plot_1_line_and_points.png>
-Package pdftex.def Info: plot_1_line_and_points.png  used on input line 165.
+<plot_2_final.png, id=77, 462.528pt x 346.896pt>
+File: plot_2_final.png Graphic file (type png)
+<use plot_2_final.png>
+Package pdftex.def Info: plot_2_final.png  used on input line 165.
 (pdftex.def)             Requested size: 164.41711pt x 123.31567pt.
-File: plot_1_line_and_points.png Graphic file (type png)
-<use plot_1_line_and_points.png>
-Package pdftex.def Info: plot_1_line_and_points.png  used on input line 169.
+File: plot_1_final.png Graphic file (type png)
+<use plot_1_final.png>
+Package pdftex.def Info: plot_1_final.png  used on input line 169.
 (pdftex.def)             Requested size: 164.41711pt x 123.31567pt.
 
 
 Package wrapfig Warning: Stationary wraptable forced to float on input line 187.
 
-[4 <./plot_1_line_and_points.png> <./plot_2_line_and_points.png>]
+[4 <./plot_1_final.png> <./plot_3_final.png> <./plot_2_final.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
  [5]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
@@ -440,18 +441,18 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
  ) 
 Here is how much of TeX's memory you used:
- 8381 strings out of 494060
- 124048 string characters out of 6163035
+ 8386 strings out of 494060
+ 124047 string characters out of 6163035
  221159 words of memory out of 5000000
- 11956 multiletter control sequences out of 15000+600000
+ 11960 multiletter control sequences out of 15000+600000
  12403 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 42i,8n,40p,1125b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (5 pages, 455322 bytes).
+ 42i,8n,40p,1125b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Report.pdf (5 pages, 448822 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
+ 120 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  23 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
