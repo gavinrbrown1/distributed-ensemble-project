@@ -27,7 +27,7 @@ def recv_try(connectionSocket, numBytes):
 # image_id      : id of image, as communicated by client, that determines experimental parameters
 #                 about delay and corruption in the communication between classifier and manager
 def callClassifiers(numClass, image, image_id):
-    """
+   
     answers = []
     sockets = []
     for i in range(numClass):
@@ -102,7 +102,7 @@ def callClassifiers(numClass, image, image_id):
                 print('Classification was successful')
             else:
                 print('Timer for classifier %s expired' % i)
-  
+    """  
     if len(answers) >= 1:
         most_frequent = Counter(answers).most_common(1)[0][0]
     else:
