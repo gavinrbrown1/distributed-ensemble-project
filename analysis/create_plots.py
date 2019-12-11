@@ -50,16 +50,70 @@ labels = get_true_labels()
 print(labels[:10])
 
 ## a sample piece of code to plot with 
-starting_experiment = 1
+if False:
+    starting_experiment = 1
 
-cache_size = [10, 25, 50]
-avg_times_uniform = [0.1, 0.1, 0.2]
-avg_times_power = [0.05, 0.75, 0.1]
-plt.plot(cache_size, avg_times_uniform, label='Uniform')
-plt.plot(cache_size, avg_times_power, label='Power Law')
-plt.xlabel('Cache Size')
-plt.ylabel('Avg. Communication Time (s)')
-plt.title('Communication Time and Cache Size')
-plt.legend()
-plt.savefig('comm_time_vs_cache_size.png')
+    cache_size = [10, 25, 50]
+    avg_times_uniform = [0.1, 0.1, 0.2]
+    avg_times_power = [0.05, 0.75, 0.1]
+    plt.plot(cache_size, avg_times_uniform, label='Uniform')
+    plt.plot(cache_size, avg_times_power, label='Power Law')
+    plt.xlabel('Cache Size')
+    plt.ylabel('Avg. Communication Time (s)')
+    plt.title('Communication Time and Cache Size')
+    plt.legend()
+    plt.savefig('comm_time_vs_cache_size.png')
+
+# accuracy and error probability
+if True:
+    starting_experiment = 0
+    num_exp = 6
+    num_runs = 10
+    total_acc = num_exp*[0]
+    probs = [0,1,2,3,4,5]
+    for exp in range(num_exp):
+        for run in range(num_runs):
+            filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
+            results = read_in_csv(filename)
+            acc =
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
