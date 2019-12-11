@@ -169,6 +169,14 @@ INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT FSM.png
 INPUT ./FSM.png
 INPUT ./FSM.png
+INPUT plot_1_line_and_points.png
+INPUT ./plot_1_line_and_points.png
+INPUT ./plot_1_line_and_points.png
+INPUT plot_2_line_and_points.png
+INPUT ./plot_2_line_and_points.png
+INPUT ./plot_2_line_and_points.png
+INPUT plot_1_line_and_points.png
+INPUT ./plot_1_line_and_points.png
 INPUT Report.aux
 INPUT ./Report.out
 INPUT ./Report.out
