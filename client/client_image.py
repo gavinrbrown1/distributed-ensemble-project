@@ -37,11 +37,11 @@ with open('experiments.csv') as csv_file:
 
 
 
-total_runs = 2
-images_per_run = 100
+total_runs = 10
+images_per_run = 1000
 
 # iterate over experiments
-for experiment_number in range(experiment_counter):
+for experiment_number in range(experiment_counter-1):
     
     # set up experiment
     base_id = image_ids[experiment_number]
@@ -130,4 +130,4 @@ for experiment_number in range(experiment_counter):
         filename = '../results/results_experiment'+str(experiment_number)+'_run'+str(run_number)+'.csv'
         with open(filename, 'w') as f:
     	    for i in range(len(images)):
-    	        f.write(images[i]+','+predicted_labels[i]+','+communication_times[i]+'\n')
+    	        f.write(images[i]+','+str(predicted_labels[i])+','+str(communication_times[i])+'\n')
