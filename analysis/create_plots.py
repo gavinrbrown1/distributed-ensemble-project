@@ -70,7 +70,7 @@ if False:
 
 # Plot 1
 # accuracy and error probability
-if True:
+if False:
     starting_experiment = 4
     num_exp = 4
     num_runs = 3 
@@ -88,7 +88,7 @@ if True:
     plt.xlabel('Probability of Error')
     plt.ylabel('Average Accuracy')
     plt.title('Prediction Accuracy and Classifier Error')
-    plt.savefig('plot_1_single_line.png')
+    #plt.savefig('plot_1_single_line.png')
 
     # plot individual points
     for run in range(num_runs):
@@ -105,7 +105,7 @@ if True:
     plt.xlabel('Probability of Error')
     plt.ylabel('Accuracy')
     plt.title('Prediction Accuracy and Classifier Error')
-    plt.savefig('plot_1_individual_points.png')
+    #plt.savefig('plot_1_individual_points.png')
     plt.clf()
 
 # Plot 2
@@ -114,73 +114,31 @@ if True:
     starting_experiment = 8
     num_exp = 4
     num_runs = 3 
-    times = np.zeros((num_exp, num_runs))
-    probs = [0.0, 0.1, 0.2, 0.3]
+    accs = np.zeros((num_exp, num_runs))
+    probs = [0.1, 0.2, 0.3, 0.4]
     for exp in range(num_exp):
         for run in range(num_runs):
             filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
             results = read_in_csv(filename)
-            times[exp, run] = average_time(results)
+            accs[exp, run] = accuracy(results, labels)
 
 
     # plot individual points
     for run in range(num_runs):
-        plt.plot(probs, times[:, run], 'bo')
+        plt.plot(probs, accs[:, run], 'bo')
     #plt.savefig('plot_2_points.png')
 
     # plot lines and points
-    plt.plot(probs, np.mean(times, axis=1), label='times')
+    plt.plot(probs, np.mean(accs, axis=1), label='Average')
     plt.xlabel('Mean Random Delay')
-    plt.ylabel('Avg. Comm. Time')
+    plt.ylabel('Accuracy')
     plt.title('Random Delay and Classifier Error')
+    plt.legend()
     plt.savefig('plot_2_line_and_points.png')
     plt.clf()
 
 # Plot 3
-# Communication time, highlighting cache differences
-if False:
-    # uniform 
-    starting_experiment = 0
-    num_exp = 4
-    num_runs = 3 
-    total_comm_time = num_exp*[0]
-    cache_size = [10, 20, 30]
-    for exp in range(num_exp):
-        for run in range(num_runs):
-            filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
-            results = read_in_csv(filename)
-            time = average_time(results)
-            total_comm_time[exp] += time
-    avg_time = [time / num_runs for time in total_comm_time]
-    plt.plot(cache_size, avg_time, label='Uniform')
-
-    # power
-    starting_experiment = 0
-    num_exp = 4
-    num_runs = 3 
-    total_comm_time = num_exp*[0]
-    cache_size = [10, 20, 30]
-    for exp in range(num_exp):
-        for run in range(num_runs):
-            filename = "../results/results_experiment"+str(starting_experiment+exp)+'_run'+str(run)+'.csv'
-            results = read_in_csv(filename)
-            time = average_time(results)
-            total_comm_time[exp] += time
-    avg_time = [time / num_runs for time in total_comm_time]
-    plt.plot(cache_size, avg_time, label='Power')
-
-    plt.xlabel('Random Delay Mean (s)')
-    plt.ylabel('Average Accuracy')
-    plt.title('Random Delay and Classifier Error')
-    plt.legend()
-    plt.savefig('plot_2.png')
-            
-
-
-
-
-
-
+# Comm-time and cache size
 
 
 

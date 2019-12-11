@@ -25,7 +25,7 @@ def sample_index(n, method, seed):
 # read in information about all the experiments
 image_ids = []
 sampling_methods = []
-with open('experiments.csv') as csv_file:
+with open('cache15_experiments.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     experiment_counter = 0
     for row in csv_reader:
@@ -127,7 +127,7 @@ for experiment_number in range(experiment_counter-1):
             myfile.close()
     
         # after we've gone through all the images, write out csv with the results
-        filename = '../results/results_experiment'+str(experiment_number)+'_run'+str(run_number)+'.csv'
+        filename = '../results/results_cache15_experiment'+str(experiment_number)+'_run'+str(run_number)+'.csv'
         with open(filename, 'w') as f:
     	    for i in range(len(images)):
     	        f.write(images[i]+','+str(predicted_labels[i])+','+str(communication_times[i])+'\n')
