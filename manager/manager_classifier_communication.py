@@ -35,7 +35,7 @@ def callClassifiers(numClass, image, image_id):
         server_address = (classifier_ip[i], classifier_port)
         sockets[i].connect(server_address)
         sockets[i].settimeout(timeout_var)
-        
+
     for i in range(numClass):
         # two classifiers experience delay
         if i == 0 | i == 1 | i == 2:
@@ -45,13 +45,13 @@ def callClassifiers(numClass, image, image_id):
         else:
             image_id = image_id[:2] + '0' + image_id[3:]
             sockets[i].sendall(('ID %s' % image_id).encode())
-        
+
     for i in range(numClass):
         answer = recv_try(sockets[i], 4096)
         if answer[:6] == 'GOT ID':
             print('Sending image to classifier %s' % i)
             sockets[i].sendall(image)
-  
+
     for i in range(numClass):
         # check server reply
         answer = recv_try(sockets[i], 4096)
@@ -67,7 +67,7 @@ def callClassifiers(numClass, image, image_id):
         else:
             print('Timer for classifier %s expired' % i)
     """
-  
+
     answers = []
     for i in range(numClass):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
