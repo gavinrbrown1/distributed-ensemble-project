@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.9.25)  11 DEC 2019 20:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.9.25)  11 DEC 2019 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,34 +648,45 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 \WF@everypar=\toks31
 Package: wrapfig 2003/01/31  v 3.6
 )
-(c:/texlive/2017/texmf-dist/tex/latex/preprint/fullpage.sty
-Package: fullpage 1999/02/23 1.1 (PWD)
-\FP@margin=\skip53
+(c:/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count122
+\Gm@cntv=\count123
+\c@Gm@tempcnt=\count124
+\Gm@bindingoffset=\dimen127
+\Gm@wd@mp=\dimen128
+\Gm@odd@mp=\dimen129
+\Gm@even@mp=\dimen130
+\Gm@layoutwidth=\dimen131
+\Gm@layoutheight=\dimen132
+\Gm@layouthoffset=\dimen133
+\Gm@layoutvoffset=\dimen134
+\Gm@dimlist=\toks32
 )
 (c:/texlive/2017/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
 
 Excluding comment 'comment')
-\c@theorem=\count122
+\c@theorem=\count125
  (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 60.
+Package hyperref Info: Link coloring OFF on input line 62.
 
 (c:/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -683,11 +694,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count123
+\c@section@level=\count126
 )
-LaTeX Info: Redefining \ref on input line 60.
-LaTeX Info: Redefining \pageref on input line 60.
-LaTeX Info: Redefining \nameref on input line 60.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
 
 (./Report.out) (./Report.out)
 \@outlinefile=\write4
@@ -696,17 +707,17 @@ LaTeX Info: Redefining \nameref on input line 60.
 
 (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count124
-\scratchdimen=\dimen127
+\scratchcounter=\count127
+\scratchdimen=\dimen135
 \scratchbox=\box32
-\nofMPsegments=\count125
-\nofMParguments=\count126
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count127
-\MPscratchDim=\dimen128
-\MPnumerator=\count128
-\makeMPintoPDFobject=\count129
-\everyMPtoPDFconversion=\toks33
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen136
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks34
 ) (c:/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -727,114 +738,149 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 62.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* hratio: 1:1
+* vratio: 1:1
+* modes: 
+* h-part:(L,W,R)=(54.2025pt, 505.89pt, 54.2025pt)
+* v-part:(T,H,B)=(54.2025pt, 686.56499pt, 54.2025pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=505.89pt
+* \textheight=686.56499pt
+* \oddsidemargin=-18.06749pt
+* \evensidemargin=-18.06749pt
+* \topmargin=-55.06749pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 62.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 63.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
 
 (c:/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
 <image0.jpeg, id=43, 32.12pt x 32.12pt>
 File: image0.jpeg Graphic file (type jpg)
 <use image0.jpeg>
-Package pdftex.def Info: image0.jpeg  used on input line 84. on input line 84.
-Package pdftex.def Info: Requested size: 70.46037pt x 70.46617pt on input line 
-84.
+Package pdftex.def Info: image0.jpeg  used on input line 86. on input line 86.
+Package pdftex.def Info: Requested size: 75.8804pt x 75.8868pt on input line 86
+.
 <image3.jpeg, id=44, 32.12pt x 32.12pt>
 File: image3.jpeg Graphic file (type jpg)
 <use image3.jpeg>
-Package pdftex.def Info: image3.jpeg  used on input line 88. on input line 88.
-Package pdftex.def Info: Requested size: 70.46037pt x 70.46617pt on input line 
-88.
-<image5.jpeg, id=45, 32.12pt x 32.12pt>
-File: image5.jpeg Graphic file (type jpg)
-<use image5.jpeg>
-Package pdftex.def Info: image5.jpeg  used on input line 92. on input line 92.
-Package pdftex.def Info: Requested size: 70.46037pt x 70.46617pt on input line 
-92.
-<image6.jpeg, id=46, 32.12pt x 32.12pt>
-File: image6.jpeg Graphic file (type jpg)
-<use image6.jpeg>
-Package pdftex.def Info: image6.jpeg  used on input line 96. on input line 96.
-Package pdftex.def Info: Requested size: 70.46037pt x 70.46617pt on input line 
-96.
-<networksArchitecture.png, id=47, 1598.97375pt x 1056.94875pt>
+Package pdftex.def Info: image3.jpeg  used on input line 90. on input line 90.
+Package pdftex.def Info: Requested size: 75.8804pt x 75.8868pt on input line 90
+.
+<networksArchitecture.png, id=45, 1598.97375pt x 1056.94875pt>
 File: networksArchitecture.png Graphic file (type png)
 <use networksArchitecture.png>
-Package pdftex.def Info: networksArchitecture.png  used on input line 104. on i
-nput line 104.
+Package pdftex.def Info: networksArchitecture.png  used on input line 98. on in
+put line 98.
 Package pdftex.def Info: Requested size: 239.83571pt x 158.53546pt on input lin
-e 104.
-<FSM.png, id=50, 2246.3925pt x 1180.41pt>
+e 98.
+<FSM.png, id=48, 2246.3925pt x 1180.41pt>
 File: FSM.png Graphic file (type png)
 <use FSM.png>
-Package pdftex.def Info: FSM.png  used on input line 122. on input line 122.
+Package pdftex.def Info: FSM.png  used on input line 116. on input line 116.
 Package pdftex.def Info: Requested size: 336.94434pt x 177.05386pt on input lin
-e 122.
+e 116.
  [1
 
 {c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image0.jpeg> 
-<./image3.jpeg> <./image5.jpeg> <./image6.jpeg>] [2 <./networksArchitecture.png
->] [3 <./FSM.png>]
-<plot_1_final.png, id=82, 462.528pt x 346.896pt>
+<./image3.jpeg>]
+[2 <./networksArchitecture.png> <./FSM.png>]
+<client_screenshot.png, id=75, 550.055pt x 181.67876pt>
+File: client_screenshot.png Graphic file (type png)
+<use client_screenshot.png>
+Package pdftex.def Info: client_screenshot.png  used on input line 155. on inpu
+t line 155.
+Package pdftex.def Info: Requested size: 440.04459pt x 145.34319pt on input lin
+e 155.
+ [3]
+<plot_1_final.png, id=85, 462.528pt x 346.896pt>
 File: plot_1_final.png Graphic file (type png)
 <use plot_1_final.png>
-Package pdftex.def Info: plot_1_final.png  used on input line 188. on input lin
-e 188.
-Package pdftex.def Info: Requested size: 211.38832pt x 158.54192pt on input lin
-e 188.
-<plot_3_final.png, id=83, 462.528pt x 346.896pt>
+Package pdftex.def Info: plot_1_final.png  used on input line 187. on input lin
+e 187.
+Package pdftex.def Info: Requested size: 227.64894pt x 170.73744pt on input lin
+e 187.
+<plot_3_final.png, id=86, 462.528pt x 346.896pt>
 File: plot_3_final.png Graphic file (type png)
 <use plot_3_final.png>
-Package pdftex.def Info: plot_3_final.png  used on input line 192. on input lin
-e 192.
-Package pdftex.def Info: Requested size: 211.38832pt x 158.54192pt on input lin
-e 192.
-<plot_2_final.png, id=84, 462.528pt x 346.896pt>
+Package pdftex.def Info: plot_3_final.png  used on input line 191. on input lin
+e 191.
+Package pdftex.def Info: Requested size: 227.64894pt x 170.73744pt on input lin
+e 191.
+<plot_2_final.png, id=87, 462.528pt x 346.896pt>
 File: plot_2_final.png Graphic file (type png)
 <use plot_2_final.png>
-Package pdftex.def Info: plot_2_final.png  used on input line 196. on input lin
-e 196.
-Package pdftex.def Info: Requested size: 211.38832pt x 158.54192pt on input lin
-e 196.
-<cache_over_time.png, id=85, 462.528pt x 346.896pt>
+Package pdftex.def Info: plot_2_final.png  used on input line 195. on input lin
+e 195.
+Package pdftex.def Info: Requested size: 227.64894pt x 170.73744pt on input lin
+e 195.
+<cache_over_time.png, id=88, 462.528pt x 346.896pt>
 File: cache_over_time.png Graphic file (type png)
 <use cache_over_time.png>
-Package pdftex.def Info: cache_over_time.png  used on input line 200. on input 
-line 200.
-Package pdftex.def Info: Requested size: 211.38832pt x 158.54192pt on input lin
-e 200.
+Package pdftex.def Info: cache_over_time.png  used on input line 199. on input 
+line 199.
+Package pdftex.def Info: Requested size: 227.64894pt x 170.73744pt on input lin
+e 199.
 
-[4] [5 <./plot_1_final.png> <./plot_3_final.png> <./plot_2_final.png> <./cache_
-over_time.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./client_screenshot.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
+ [5 <./plot_1_final.png> <./plot_3_final.png> <./plot_2_final.png> <./cache_ove
+r_time.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 247.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 247.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: D1C737059D80540C22C51166C9286555;538.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 248.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
  ) 
 Here is how much of TeX's memory you used:
- 8662 strings out of 492990
- 124448 string characters out of 6136334
- 219960 words of memory out of 5000000
- 12072 multiletter control sequences out of 15000+600000
+ 9074 strings out of 492990
+ 130399 string characters out of 6136334
+ 232496 words of memory out of 5000000
+ 12485 multiletter control sequences out of 15000+600000
  11651 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,40p,876b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,40p,876b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/texmf-di
@@ -843,10 +889,10 @@ ype1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr9.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb>
-Output written on Report.pdf (6 pages, 498640 bytes).
+Output written on Report.pdf (5 pages, 512142 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 139 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  25 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -5,9 +5,11 @@
 \usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage[top=0.75in,bottom=0.75in,left=0.75in,right=0.75in,
+centering,letterpaper]{geometry}
 
 \title{\vspace{-5ex} Distributed Ensembles for Image Classification}
-\usepackage{fullpage,comment}
+\usepackage{comment}
 \author{Andrea Burns \and Gavin Brown \and Iden Kalemaj}
 \date{\vspace{-5ex}}
 \newcommand{\cP}{\mathcal{P}}
@@ -87,15 +89,7 @@ Lastly, we try hand-crafted caching tools that can act as short-cut decisions, t
     \begin{subfigure}[b]{0.15\textwidth}
         \includegraphics[width=\textwidth]{image3.jpeg}
     \end{subfigure}
-    \\ 
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{image5.jpeg}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{image6.jpeg}
-    \end{subfigure}
-    \caption{A few images from CIFAR-10. Clockwise from top left: a dog, a truck, a horse, and an airplane.}
+    \caption{A few images from CIFAR-10.}
     \label{fig:cifar10_images}
 \end{wrapfigure}
 
@@ -154,9 +148,14 @@ In our experiment we consider the following relationships:
 
 \subsection{Usage Instructions}
 
-Our system is designed to be used as part of an automated system, so the process are all started from within scripts.
-Once the resources are set up on GENI, the user must start a script on each machine.
-The system details are listed elsewhere, but the user-relevant details are in the client script, which reads an image file, opens a TCP connection with the manager, and waits for a classification.
+Our system is designed to be used as part of an automated system, so the process are all started from within scripts. Once the resources are set up on GENI, the user specifies the parameters of the experiments they wish to run in a .csv file residing in the client. The user then starts a script on each machine using the command: python [insert script name] [insert port number]. Once the scripts are running, messages are printed on each node to indicate the communication flow and messages being exchanged, as demonstrated in \ref{fig:client_screenshot}. Refer to the instructions document for a detailed description of how to setup experiments and tweak other parameters. 
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[scale=0.8]{client_screenshot.png}
+	\caption{Messages printed on client during experiment}
+	\label{fig:client_screenshot}
+\end{figure}
 
 \subsection{Analysis Results}
 
@@ -182,7 +181,7 @@ On the bottom left we visualize how the cache is used over time: while the unifo
 Table~\ref{tab:cache} that the uniform sampling utilized the cache at a lower rate than the power law.
 The smaller cache was faster, possibly because of the overhead of recomputing.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{plot_1_final.png}
