@@ -158,6 +158,7 @@ INPUT FSM.png
 INPUT ./FSM.png
 INPUT ./FSM.png
 INPUT /usr/local/texlive/2019basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT client_screenshot.png
 INPUT ./client_screenshot.png
 INPUT ./client_screenshot.png
@@ -185,3 +186,4 @@ INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
