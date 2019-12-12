@@ -9,7 +9,7 @@ Everything you need (and more) should be in this repository, but feel free to co
 
 ## Downloading and Setting Up
 
-On your local machine, you can access our Rspec [here](https://raw.githubusercontent.com/gavinrbrown1/distributed-ensemble-project/master/setup_and_instructions/ensemble_classifier_rspec.xml)
+On your local machine, you can access our Rspec [here](https://raw.githubusercontent.com/gavinrbrown1/distributed-ensemble-project/master/setup_and_instructions/ensemble_classifier_rspec.xml).
 After setting up the GENI nodes, log into each machine.
 
 To download the file and install dependencies, download and run our setup script on each machine:
