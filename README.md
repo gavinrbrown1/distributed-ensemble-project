@@ -27,7 +27,7 @@ conda install pytorch torchvision cpuonly -c pytorch
 ```
 Then everything should be ready to go!
 
-In the "setup_and_installation" folder, you will find a document titled "instructions.pdf"  with detailed step-by-step instructions for operation.
+In the `setup_and_installation` folder, you will find a document titled "instructions.pdf"  with detailed step-by-step instructions for operation.
 
 ## Repository Structure
 
