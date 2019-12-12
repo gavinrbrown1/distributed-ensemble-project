@@ -1,7 +1,7 @@
 # Download and install the relevant scripts
 echo "Downloading files from Github and unzipping"
 wget https://github.com/gavinrbrown1/distributed-ensemble-project/archive/master.zip
-unzip distributed-ensemble-project-master.zip
+unzip master.zip
 cd distributed-ensemble-project-master
 
 echo "Updating apt-get"
