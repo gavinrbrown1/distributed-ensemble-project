@@ -1,4 +1,9 @@
 # Download and install the relevant scripts
+echo "Downloading files from Github and unzipping"
+wget distributed-ensemble-project-master.zip
+unzip distributed-ensemble-project-master.zip
+cd distributed-ensemble-project-master
+
 echo "Updating apt-get"
 apt-get update
 
