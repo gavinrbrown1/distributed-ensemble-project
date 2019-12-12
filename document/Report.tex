@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsthm,amssymb,algorithm,hyperref,xcolor}
 \usepackage[noend]{algpseudocode}
@@ -69,7 +69,7 @@
 The general goal of image classification is to determine which of several fixed classes an image belongs to. 
 One common benchmark is the CIFAR-10 dataset \cite{cifar10}, which contains 32$\times$32 pixel images of ten different classes: airplanes, automobiles, birds, cats, deer, dogs, frogs, horse, ship, truck.
 We've included a selection of these images in Figure~\ref{fig:cifar10_images}.
-Image classification is an important machine learning task, as it is an initial step toward visual scene understanding -- a skill needed to interact with and reason about an environment (use cases include robot assistants, autonomous vehicles, etc).
+Image classification is an important machine learning task, as it is an initial step toward visual scene understanding. 
 
 Ensembling is a popular way to improve the performance of a machine learning task; an ensemble is a set of different classifiers that are ‘combined’ to make a collective, better decision on the task. 
 Such models are also sometimes called ``committees;'' for a reference see Chapter 14 of \cite{bishop}.
@@ -102,11 +102,11 @@ Lastly, we try hand-crafted caching tools that can act as short-cut decisions, t
 \begin{figure}
     \centering
     \includegraphics[scale=0.15]{networksArchitecture.png}
-    \caption{Here we have a high level representation of the GENI architecture we set up. The primary components include a client, a manager, a caching mechanism which resides on the manager, and four classifiers which the manager can communicate with.}
+    \caption{A high level representation of the GENI architecture setup. The primary components include a client, a manager, a caching mechanism which resides on the manager, and four classifiers which the manager can communicate with.}
     \label{fig:architecture}
 \end{figure}
 
-A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists (zero-normalized cross correlation coefficient is deemed high enough between two images), then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}.
+A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists, then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}.
 
 The learning outcomes of this project include: greater experience with the featured aspects of computer networking like sockets, caching, and coordinating distributed systems.
 We also hope to improve our ability to collaborate on building moderate-scale computer systems from near-scratch, learning more about how to design our solutions.
@@ -124,13 +124,31 @@ Finally, we hope to better understand how distributed approaches may benefit mac
     \label{fig:fsm}
 \end{figure}
 
-The two key components of the cache are how we compare a new image from the client to the existing cache images, and how we choose to update the cache over time. To compare a new image to the cache images, the Zero-Normalized Cross-Correlation coefficient (ZNCC) is used. This is a image similarity metric that is invariant to brightness differences; its values range $[0,1]$, where a ZNCC value of one means the two images being compared are the same. We deem two images similar enough to use the cached decision if their ZNCC is greater than $0.9$. In the case that this threshold is not reached, we do not use the cache and have to communicate with the classifiers. Any time there is a cache miss, the new image is going to be added to the cache once the ensembled decision arrives. This means that we keep adding new samples to the cache until it is full. We experiment with cache sizes of 10, 50, and 100 to see the effects on latency. Once the cache is full, we need a protocol to kick out the least important samples being stored. We want our cache to keep track of the most useful image, decision pairs. 
+The two key components of the cache are how we compare a new image from the client to the existing cache images, and how we choose to update the cache over time. To compare a new image to the cache images, the Zero-Normalized Cross-Correlation coefficient (ZNCC) is used. This is a image similarity metric that is invariant to brightness differences; its values range $[0,1]$, where a ZNCC value of one means the two images being compared are the same. We deem two images similar enough to use the cached decision if their ZNCC is greater than $0.9$. In the case that this threshold is not reached, we do not use the cache and have to communicate with the classifiers. Any time there is a cache miss, the new image is going to be added to the cache once the ensembled decision arrives. We experiment with cache sizes of 15 and 30 to see the effects on latency. 
 
-We decide to kick out the \textbf{pair} of closest images in terms of L2/Euclidean distance. We can think of this pair as being the least informative, since they are most similar to each other, and ideally our cache would include as much visual variety as possible. It is possible to use other image distance metrics, but for simplicity we stick with Euclidean. We remove two images, pulling inspiration from the many cases of exponential backoff we have seen in case. We note that this backoff isn't exponential. To optimize the computation of pairwise distances between images in the cache, we only compute the full $(n) \times (n-1)$ pairwise (where $n$ is the number of images in the cache) upon initialization. The first full cache results in the calculation of these distances, which are then stored in a text file. These values are only updated as samples are added or removed to the cache, never redundantly re-computing pairwise distances.
+Once the cache is full, we decide to kick out the \textbf{pair} of closest images in terms of L2/Euclidean distance. We can think of this pair as being the least informative, since they are most similar to each other. Pairwise distances are only updated as samples are added or removed to the cache, never redundantly re-computing pairwise distances.
 
-We usually evaluate our models by sampling images uniformly from the test set.
-In a real system, though, some images may occur far more than others, such as security systems evaluating the same fixed scene.
-To model this we also sample from a ``long-tailed'' distribution, a simple form of Zipf distribution discussed in \cite{mitzenmacher}, so some images will be very frequent and the cache will be more useful.
+To evaluate the impact of caching on latency, we consider two models for generating image requests from the client. In the first model images are sampled uniformly at random. In a real system, though, some images may occur far more than others, such as security systems evaluating the same fixed scene. To model this we also sample from a ``long-tailed'' distribution, a simple form of Zipf distribution discussed in \cite{mitzenmacher}, so some image requests will be very frequent over time and the cache will be more useful.
+
+\subsection{Corruption and Delay}
+
+One of the benefits of ensembling, from a networks perspective, is the resilience to delays and corruption experienced in the communication between servers. Specifically, if one or some of the classifiers timeout, the manager can use the decision from those classifiers that did not timeout and still send a response to the client. Similarly, if one or some of the decisions form the classifiers gets corrupted, the use of the majority vote guarantees that the decision of the manager will not loose too much in accuracy. Our experiment considers the following parameters:
+
+\begin{itemize}
+	\item a fixed delay experienced by each classifier, set to 0.1s – this simulates the fact that there is a delay in the communication between classifier and manager, and in specific, this delay is longer than the time it takes to check the the cache for an existing decision 
+	\item a random delay experienced by three of the classifiers – three classifiers simulates a delay from an exponential distribution with a specified mean, on top of the fixed delay. We consider the following means: 0.1s, 0.2s, 0.3s, 0.4s. This simulates situations with high traffic and slow communication in the network. The fourth classifier does not experience any delay, to guarantee that the manager receives at least one decision before timeout. 
+	\item a corruption probability – each classifier experiences corruption, i.e. it sends a flipped decision to the manager, different from the real decision, with some probability. We consider the following corruption probabilities: 0.0, 0.1, 0.2, 0.3. 
+	\item 	a timeout – the manger waits for a response form each classifier for 3 seconds only and closes the connection if there is a timeout. 
+\end{itemize}
+In our experiment we consider the following relationships:
+
+\begin{itemize}
+	\item How does accuracy of the classification change with the corruption probability?
+	\item How does total communication time, from when the client sends an image, until it receives a classification, change with random delay?
+	\item  How does accuracy change with the random delay introduced in the channel between manager and classifier?
+\end{itemize}
+
+
 
 \section{Results}
 
