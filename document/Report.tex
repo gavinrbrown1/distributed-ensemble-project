@@ -80,7 +80,7 @@ In this experiment we distribute 4 independent classifiers across different netw
 This distributed system allows us to investigate latency versus accuracy: by only taking the votes from classifiers that have responded within a certain timeout period, we force decisions to be faster but possibly lose accuracy.
 Lastly, we try hand-crafted caching tools that can act as short-cut decisions, to see the impact on end-to-end delay.
 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}{r}{0.4\textwidth}
     \centering
     \begin{subfigure}[b]{0.15\textwidth}
         \includegraphics[width=\textwidth]{image0.jpeg}
@@ -95,12 +95,12 @@ Lastly, we try hand-crafted caching tools that can act as short-cut decisions, t
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.15]{networksArchitecture.png}
-    \caption{A high level representation of the GENI architecture setup. The primary components include a client, a manager, a caching mechanism which resides on the manager, and four classifiers which the manager can communicate with.}
+    \includegraphics[scale=0.12]{networksArchitecture.png}
+    \caption{A high-level representation of the GENI architecture setup.}
     \label{fig:architecture}
 \end{figure}
 
-A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists, then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client. The architecture flow can be view in Figure~\ref{fig:architecture}.
+A client wishing to receive classification for an image connects to a manager and sends the image to the manager. The manager then checks if the cache can be utilized before sending copies of the image to the classifiers. If the image already exists in the cache, or a close enough image exists, then it can simply return the cached decision. Otherwise, the manager will start communication with all four classifiers and will aggregate their results into a majority vote. This decision will then be added to the cache and communicated back to the waiting client.
 
 The learning outcomes of this project include: greater experience with the featured aspects of computer networking like sockets, caching, and coordinating distributed systems.
 We also hope to improve our ability to collaborate on building moderate-scale computer systems from near-scratch, learning more about how to design our solutions.
@@ -114,7 +114,7 @@ Finally, we hope to better understand how distributed approaches may benefit mac
 \begin{figure}[t]
     \centering
     \includegraphics[scale=0.15]{FSM.png}
-    \caption{Finite State Machine characterizing the behavior of our system. The classifiers are grouped under the same state since they behave identically up to randomness.}
+    \caption{Finite State Machine characterizing the behavior of our system.}
     \label{fig:fsm}
 \end{figure}
 
@@ -122,24 +122,23 @@ The two key components of the cache are how we compare a new image from the clie
 
 Once the cache is full, we decide to kick out the \textbf{pair} of closest images in terms of L2/Euclidean distance. We can think of this pair as being the least informative, since they are most similar to each other. Pairwise distances are only updated as samples are added or removed to the cache, never redundantly re-computing pairwise distances.
 
-To evaluate the impact of caching on latency, we consider two models for generating image requests from the client. In the first model images are sampled uniformly at random. In a real system, though, some images may occur far more than others, such as security systems evaluating the same fixed scene. To model this we also sample from a ``long-tailed'' distribution, a simple form of Zipf distribution discussed in \cite{mitzenmacher}, so some image requests will be very frequent over time and the cache will be more useful.
+To evaluate the impact of caching on latency, we consider two models for generating image requests from the client. In the first model images are sampled uniformly at random. In a real system, though, some images may occur far more than others, such as security systems evaluating the same fixed scene. To model this we also sample from a ``long-tailed'' Zipf distribution so some image requests will be very frequent over time and the cache will be more useful.
+We add a fixed delay to all classifiers to simulate additional delay between machines.
 
 \subsection{Corruption and Delay}
 
-One of the benefits of ensembling, from a networks perspective, is the resilience to delays and corruption experienced in the communication between servers. Specifically, if one or some of the classifiers timeout, the manager can use the decision from those classifiers that did not timeout and still send a response to the client. Similarly, if one or some of the decisions form the classifiers gets corrupted, the use of the majority vote guarantees that the decision of the manager will not loose too much in accuracy. Our experiment considers the following parameters:
-
+One of the benefits of ensembling, from a networks perspective, is the resilience to delays and corruption experienced in the communication between servers. Specifically, if one or some of the classifiers timeout, the manager can use the decision from those classifiers that did not timeout and still send a response to the client. Similarly, if one or some of the decisions form the classifiers gets corrupted, the use of the majority vote guarantees that the decision of the manager will not lose too much in accuracy. Our experiment considers the following parameters:
 \begin{itemize}
-	\item a fixed delay experienced by each classifier, set to 0.1s – this simulates the fact that there is a delay in the communication between classifier and manager, and in specific, this delay is longer than the time it takes to check the the cache for an existing decision 
-	\item a random delay experienced by three of the classifiers – three classifiers simulates a delay from an exponential distribution with a specified mean, on top of the fixed delay. We consider the following means: 0.1s, 0.2s, 0.3s, 0.4s. This simulates situations with high traffic and slow communication in the network. The fourth classifier does not experience any delay, to guarantee that the manager receives at least one decision before timeout. 
-	\item a corruption probability – each classifier experiences corruption, i.e. it sends a flipped decision to the manager, different from the real decision, with some probability. We consider the following corruption probabilities: 0.0, 0.1, 0.2, 0.3. 
-	\item 	a timeout – the manger waits for a response form each classifier for 3 seconds only and closes the connection if there is a timeout. 
+	\item A random delay experienced by three classifiers – three classifiers draw delays from an exponential distribution with a specified mean, on top of the fixed delay. The fourth classifier does not experience any delay, to guarantee that the manager receives at least one decision before timeout. 
+	\item A corruption probability – each classifier experiences corruption, i.e. it sends a flipped decision to the manager, different from the real decision, with some probability. We consider the following corruption probabilities: 0.0, 0.1, 0.2, 0.3. 
+	\item A timeout – the manger waits for a response form each classifier for 3 seconds only and closes the connection if there is a timeout. 
 \end{itemize}
 In our experiment we consider the following relationships:
 
 \begin{itemize}
 	\item How does accuracy of the classification change with the corruption probability?
-	\item How does total communication time, from when the client sends an image, until it receives a classification, change with random delay?
-	\item  How does accuracy change with the random delay introduced in the channel between manager and classifier?
+	\item How does end-to-end communication time change with random delays?
+	\item  How does accuracy change with the random delay introduced  between manager and classifier?
 \end{itemize}
 
 
@@ -159,6 +158,17 @@ Our system is designed to be used as part of an automated system, so the process
 
 \subsection{Analysis Results}
 
+
+As you can see in Figure~\ref{fig:results}, our system's behavior changed significantly with different parameters.
+On the top left, we can see that decreasing the reliability of our individual classifiers reduced the overall accuracy, but by a lower amount: 
+    even when each classifier had a 30\% chance of answering randomly, our average accuracy was over 80\%.
+On the top right we see how random delays affect communication time: as expected, they increase it!
+On the bottom left we see how random delays affect accuracy (through the timeout mechanism).
+This is a little hard to interpret - it's possible more experiments are needed.
+On the bottom left we visualize how the cache is used over time: while the uniform distribution rarely gets used, the power law linearity means roughly one in three requests hits the cache.
+Table~\ref{tab:cache} shows that the uniform sampling utilized the cache at a lower rate than the power law.
+The smaller cache was faster, possibly because of the overhead of recomputing.
+
 \begin{wraptable}{l}{0.27\textwidth}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -170,38 +180,27 @@ Our system is designed to be used as part of an automated system, so the process
     \label{tab:cache}
 \end{wraptable}
 
-As you can see in Figure~\ref{fig:results}, our system's behavior changed significantly with different parameters.
-On the top left, we can see that decreasing the reliability of our individual classifiers reduced the overall accuracy, but by a lower amount: 
-    even when each classifier had a 30\% chance of answering randomly, our average accuracy was over 80\%.
-On the top right we see how random delays affect communication time: as expected, they increase it!
-On the bottom left we see how random delays affect accuracy (through the timeout mechanism).
-This is a little hard to interpret - it's possible more experiments are needed.
-On the bottom left we visualize how the cache is used over time: while the uniform distribution rarely gets used, the power law linearity means roughly one in three requests hits the cache.
-
-Table~\ref{tab:cache} that the uniform sampling utilized the cache at a lower rate than the power law.
-The smaller cache was faster, possibly because of the overhead of recomputing.
 
 \begin{figure}[h]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{plot_1_final.png}
     \end{subfigure}
     ~
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{plot_3_final.png}
     \end{subfigure}
     \\
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{plot_2_final.png}
     \end{subfigure}
     ~
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \includegraphics[width=\textwidth]{cache_over_time.png}
     \end{subfigure}
     \caption{Results from various experiments, as described in the text.}
     \label{fig:results}
 \end{figure}
-
 
 
 \section{Conclusions and Future Extensions}
@@ -211,10 +210,8 @@ It was enjoyable to see the natural way our research interests of vision, machin
 We also learned a lot through the process of pulling together the many components and defining our own protocols to interact across machines.
 The results mostly matched what we expected, showing clear tradeoffs between accuracy, space requirements, and latency.
 
-{\bf Was anything in the plots surprising?
-Probably something should have surprised us.}
-
 Several natural extensions present themselves.
+Our cache was not efficient enough to speed up the classification: this could be improved by making more efficient decisions or ordering the images.
 Currently we use a fixed number of classifiers, but we could extend our system to gracefully scale up and down as machines come on and offline.
 From the point of the view of the user, we used only one client in order to highlight the effects of the cache and unreliable classification.
 We could extend our manager to handle concurrent requests from multiple clients, and set up the classifiers to process images sequentially instead of one over each connection.
@@ -236,9 +233,6 @@ Gavin wrote the code to handle the prediction as well as modeling error and dela
 
     \bibitem{cifar10}
     Krizhevsky, Alex, and Geoffrey Hinton. Learning multiple layers of features from tiny images. Vol. 1. No. 4. Technical report, University of Toronto, 2009.
-
-    \bibitem{mitzenmacher}
-    Mitzenmacher, Michael, and Eli Upfal. Probability and computing: randomization and probabilistic techniques in algorithms and data analysis. Cambridge university press, 2017.
 
 \end{thebibliography}
 
