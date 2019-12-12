@@ -9,9 +9,25 @@ Everything you need (and more) should be in this repository, but feel free to co
 
 ## Downloading and Setting Up
 
-In the "setup_and_installation" folder, you will find instructions for setup, installation, and operation.
-In particular, you will find a GENI Rspec and a detailed step-by-step document for duplicating our results.
-In addition, there are two scripts (setup_1.sh and setup_2.sh) that automatically download and install this repository and its requirements.
+On your local machine, you can access our Rspec [here](https://raw.githubusercontent.com/gavinrbrown1/distributed-ensemble-project/master/setup_and_instructions/ensemble_classifier_rspec.xml)
+After setting up the GENI nodes, log into each machine.
+
+To download the file and install dependencies, download and run our setup script on each machine:
+```
+wget https://raw.githubusercontent.com/gavinrbrown1/distributed-ensemble-project/master/setup_and_instructions/setup.sh
+sudo bash setup.sh
+```
+This will download the rest of the project files and install Anaconda.
+You will be prompted for permission a few times; accept the defaults. 
+The installation may take a few minutes.
+After installing Anaconda, you will need to restart the shell for the changes to take effect.
+After reconnecting, install the following Python packages on each machine:
+```
+conda install pytorch torchvision cpuonly -c pytorch
+```
+Then everything should be ready to go!
+
+In the `setup_and_installation` folder, you will find a document titled "instructions.pdf"  with detailed step-by-step instructions for operation.
 
 ## Repository Structure
 
