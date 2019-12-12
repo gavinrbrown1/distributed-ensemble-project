@@ -1,6 +1,6 @@
 # Download and install the relevant scripts
 echo "Downloading files from Github and unzipping"
-wget distributed-ensemble-project-master.zip
+wget https://github.com/gavinrbrown1/distributed-ensemble-project/archive/master.zip
 unzip distributed-ensemble-project-master.zip
 cd distributed-ensemble-project-master
 
