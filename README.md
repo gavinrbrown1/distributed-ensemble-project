@@ -34,7 +34,7 @@ We also have included a video showing the process for starting experiments.
 
 Here is a guide to the top-level folders in this repository:
 * `client`, `manager`, and `classifier` hold the code used in operating the system.
-* the `cache` folder within `manager` must be empty before you begin your initial experiments. It clears itself after each experiment, which is currently set to consist of 200 images (i.e. each experiment contains 200 images total).
+* The `cache` folder within `manager` must be empty before you begin your initial experiments. It clears itself after each experiment, which is currently set to consist of 200 images (i.e. each experiment contains 200 images total).
 * `document` contains the report and associated files.
 * `results` contains low-level results saved by our machines, in CSV format.
 * `analysis` contains scripts used to produce plots and statistics.
